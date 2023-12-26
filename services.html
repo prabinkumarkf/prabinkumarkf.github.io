@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services</title>
+    <link href="/dist/output.css" />
+    <link href="/dist/custom.css" rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <nav class="bg-white w-full z-20 top-0 start-0">
+      <div
+        class="container flex flex-wrap items-center lg:justify-between mx-auto p-4 md:justify-center gap-4"
+      >
+        <a href="index.html" class="flex items-center space-x-3 w-36">
+          <img src="/img/logo.png" />
+        </a>
+        <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+          <button
+            type="button"
+            class="text-white bg-[#FFC221] hover:bg-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            BOOK A MEETING
+          </button>
+          <button
+            data-collapse-toggle="navbar-multi-level"
+            type="button"
+            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-multi-level"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Open main menu</span>
+            <svg
+              class="w-5 h-5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 17 14"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M1 1h15M1 7h15M1 13h15"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          class="flex hidden w-full md:block md:w-auto sm:w-full"
+          id="navbar-multi-level"
+        >
+          <ul
+            class="flex flex-col p-4 md:p-0 mt-4 text-black md:space-x-8 md:flex-row md:mt-0 md:border-0"
+          >
+            <li>
+              <a
+                href="services.html"
+                class="block py-2 px-3 md:p-0 text-gray-500 hover:text-gray-300"
+                aria-current="page"
+              >
+                Services</a
+              >
+            </li>
+            <li>
+              <a
+                href="resources.html"
+                class="block py-2 px-3 md:p-0 hover:text-gray-300"
+                >Resources</a
+              >
+            </li>
+            <li>
+              <a
+                href="casestudies.html"
+                class="block py-2 px-3 md:p-0 hover:text-gray-300"
+                >Case studies</a
+              >
+            </li>
+            <li>
+              <button
+                id="dropdownNavbarLink"
+                data-dropdown-toggle="dropdownNavbar"
+                class="flex items-center justify-between w-full   py-2 px-3 md:p-0 hover:text-gray-300"
+              >
+                Company
+                <svg
+                  class="w-2.5 h-2.5 ms-2.5"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m1 1 4 4 4-4"
+                  />
+                </svg>
+              </button>
+              <!-- Dropdown menu -->
+              <div
+                id="dropdownNavbar"
+                class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44"
+              >
+                <ul
+                  class="py-2 text-sm text-gray-700"
+                  aria-labelledby="dropdownLargeButton"
+                >
+                  <li>
+                    <a
+                      href="partner.html"
+                      class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >Partner</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="about.html"
+                      class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >About</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <a
+                href="pricing.html"
+                class="block py-2 px-3 md:p-0 hover:text-gray-300"
+                >Pricing</a
+              >
+            </li>
+            <li>
+              <a
+                href="contact.html"
+                class="block py-2 px-3 md:p-0 hover:text-gray-300"
+                >Contact
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <section
+      class="mx-auto bg-cover bg-center service-banner w-full lg:h-screen h-96 flex justify-center items-center"
+    >
+      <div class="text-primary">
+        <h1 class="text-center font-bold text-5xl uppercase pk text-white">
+          B2B Appointment Setting
+        </h1>
+      </div>
+    </section>
+    <section class="w-full bg-[#ffc221] py-20 px-5">
+      <div class="container mx-auto">
+        <div class="text-center">
+          <h2 class="h2 text-black font-bold uppercase mb-10">Our Framework</h2>
+        </div>
+        <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+          <div class="card bg-white shadow-xl rounded-3xl p-5">
+            <figure
+              class="px-5 py-5 text-center content-center justify-center flex"
+            >
+              <img src="/img/User Account.png" alt=" " class=" " />
+            </figure>
+            <div class="card-body items-center text-center text-black">
+              <h4 class="font-bold text-2xl">Audience</h4>
+              <p class="text-black">
+                Ensure every prospect on your list is the best possible fit. A
+                balance of manual research and our proprietary data profiling
+                technology allows you to penetrate new markets and drive revenue
+                with laser focus.
+              </p>
+              <div class="card-actions">
+                <a
+                  href="#"
+                  class="btn-primary inline-flex py-1.5 lg:px-5 px-4 text-sm font-semibold   text-white"
+                  >Learn more</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="card bg-white shadow-xl rounded-3xl p-5">
+            <figure
+              class="px-5 py-5 text-center content-center justify-center flex"
+            >
+              <img src="/img/Restart.png" alt=" " class=" " />
+            </figure>
+            <div class="card-body items-center text-center text-black">
+              <h4 class="font-bold text-2xl">Value</h4>
+              <p class="text-black">
+                Stand out by offering value your competition can't. Focus on
+                your entire addressable market with personalised,
+                prospect-centric emails. See results using time-tested and
+                scientifically proven strategies your prospects won't ignore.
+              </p>
+              <div class="card-actions">
+                <a
+                  href="#"
+                  class="btn-primary inline-flex py-1.5 lg:px-5 px-4 text-sm font-semibold   text-white"
+                  >Learn more</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="card bg-white shadow-xl rounded-3xl p-5">
+            <figure
+              class="px-5 py-5 text-center content-center justify-center flex"
+            >
+              <img src="/img/Clock.png" alt=" " class=" " />
+            </figure>
+            <div class="card-body items-center text-center text-black">
+              <h4 class="font-bold text-2xl">Fundamentals</h4>
+              <p class="text-black">
+                Hand off time-consuming technical headaches and focus on
+                conversions. Let our in-house email specialists take care of the
+                details and ensure your campaign is optimised to deliver
+                outstanding results.
+              </p>
+              <div class="card-actions">
+                <a
+                  href="#"
+                  class="btn-primary inline-flex py-1.5 lg:px-5 px-4 text-sm font-semibold   text-white"
+                  >Learn more</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="w-full py-20">
+      <div class="container mx-auto">
+        <h2 class="h2 text-black font-bold uppercase mb-10">
+          Campaign Process
+        </h2>
+        <div class="overflow-x-auto px-10">
+          <table class="table table-auto border-collapse text-center   sm:overflow-x-visible    w-max sm:w-fit">
+            <!-- head -->
+
+            <tbody>
+              <!-- row 1 -->
+              <tr class="bg-gray-50">
+                <td class="w-40 py-12">
+                  <h4 class="font-bold text-2xl">Step 1</h4>
+                </td>
+                <td><h3 class="font-bold text-2xl">Strategy</h3></td>
+                <td>
+                  <p class="font-bold text-md">
+                    We consult with your team to identify your company's
+                    strengths, unique value proposition and ideal prospects. You
+                    define your campaign goals and business objectives and get
+                    us headed in the right direction.
+                  </p>
+                </td>
+              </tr>
+              <!-- row 2 -->
+              <tr>
+                <td class="font-bold text-2xl w-40 py-12">Step 2</td>
+                <td class="font-bold text-2xl">Audience refinement</td>
+                <td>
+                  <p class="font-bold text-md">
+                    Our in-house researchers do a deep dive to pinpoint
+                    industries and verticals that offer you the best fit. With a
+                    combination of manual research, in house data technologies,
+                    and rigorous vetting, we identify high-value targets for
+                    your approval. Bots and data scrapers just don’t cut it.
+                  </p>
+                </td>
+              </tr>
+              <!-- row 3 -->
+              <tr class="bg-gray-50">
+                <td class="font-bold text-2xl w-72 py-12">Step 3</td>
+                <td class="font-bold text-2xl">Value optimised outreach</td>
+                <td>
+                  <p class="font-bold text-md">
+                    No automated templates here. Our outreach specialists
+                    hand-craft and optimise every individual email and response
+                    to leave no doubt they are genuine interpersonal
+                    communications.
+                  </p>
+                  <p class="font-bold text-md">
+                    While our email sequences are structured, each offers unique
+                    value and personalised content. Well-researched
+                    observations, industry insights and educational
+                    opportunities are just some of the ways we differentiate you
+                    from the crowd.
+                  </p>
+                </td>
+              </tr>
+              <!-- row 4 -->
+              <tr>
+                <td class="font-bold text-2xl w-40 py-12">Step 4</td>
+                <td class="font-bold text-2xl">Campaign management</td>
+                <td>
+                  <p class="font-bold text-md">
+                    Our teams manage your campaign and inbox — all you need to
+                    do is talk to your prospects. Our campaign managers handle
+                    autoresponders and inter-company referrals until somebody
+                    puts their hand up and requests a meeting. You receive
+                    campaign results and real-time updates using Google Sheets
+                    and we can integrate directly with most CRMs.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-20 w-full bg-dark-1 py-20 ]">
+      <div class="container mx-auto">
+        
+        <div
+          class="flex lg:flex-row flex-col lg:flex-nowrap md:flex-wrap shrink-0 gap-10 align-middle justify-center"  >
+          <div class="lg:w-2/12 justify-center flex flex-col  items-center">
+            <h3 class="text-3xl font-bold text-center text-white">
+              OUR SERVICE  </h3>
+            <a href="#"    class="  w-max mt-3 text-center btn-primary   py-1.5 lg:px-5 px-4 text-sm font-semibold   text-white uppercase">pricing</a >
+          </div>
+          <div class="lg:w-10/12 flex flex-row">  
+            <div class="bg-dark p-10 flex lg:flex-row flex-col w-full">  
+            <div class="w-full p-6  ">
+                <h4 class=" text-[#ffc221] font-bold mb-6 ">Service Includes</h4>
+            <ul class="cc-list-tick     text-white   	 ">
+                <li class="  sm:pb-2">
+                    <div class="flex items-center space-x-4  ">
+                       <div class="flex-shrink-0">
+                          <img class="  rounded-full" src="/img/check.png" alt=" ">
+                       </div>
+                       <div class="flex-1 min-w-0">
+                          <p class="     ">
+                            Dedicated team (Account Manager, Research Manager, SDR, Content Writer) 
+                          </p>
+                           
+                       </div>
+                        
+                    </div>
+                 </li>
+                 
+                 <li class="  sm:pb-2">
+                    <div class="flex items-center space-x-4  ">
+                       <div class="flex-shrink-0">
+                          <img class="  rounded-full" src="/img/check.png" alt=" ">
+                       </div>
+                       <div class="flex-1 min-w-0">
+                          <p class="  truncate  ">
+                            reporting
+                          </p>
+                           
+                       </div>
+                        
+                    </div>
+                 </li>
+                 <li class="  sm:pb-2">
+                    <div class="flex items-center space-x-4  ">
+                       <div class="flex-shrink-0">
+                          <img class="  rounded-full" src="/img/check.png" alt=" ">
+                       </div>
+                       <div class="flex-1 min-w-0">
+                          <p class="  truncate  ">
+                            Email campaign creation and management
+                          </p>
+                           
+                       </div>
+                        
+                    </div>
+                 </li>
+                 <li class="  sm:pb-2">
+                    <div class="flex items-center space-x-4  ">
+                       <div class="flex-shrink-0">
+                          <img class="  rounded-full" src="/img/check.png" alt=" ">
+                       </div>
+                       <div class="flex-1 min-w-0">
+                          <p class="  truncate  ">
+                            Hand-curated leads
+                          </p>
+                           
+                       </div>
+                        
+                    </div>
+                 </li>
+                 <li class="  sm:pb-2">
+                    <div class="flex items-center space-x-4  ">
+                       <div class="flex-shrink-0">
+                          <img class="  rounded-full" src="/img/check.png" alt=" ">
+                       </div>
+                       <div class="flex-1 min-w-0">
+                          <p class="  truncate  ">
+                            Target accounts researched and a personalised line written
+                          </p>
+                           
+                       </div>
+                        
+                    </div>
+                 </li>
+                
+            
+                 
+                
+            </ul></div>
+            <div class="w-full p-6">
+                <h4 class=" text-[#ffc221] font-bold mb-6 ">Outcomes</h4>
+                <ul>
+                <li class="  sm:pb-2">
+                <div class="flex items-center space-x-4  ">
+                   <div class="flex-shrink-0">
+                      <img class="  rounded-full" src="/img/check.png" alt=" ">
+                   </div>
+                   <div class="flex-1 min-w-0">
+                      <p class="   text-white  ">
+                        Target accounts researched and a personalised line written
+                      </p>
+                       
+                   </div>
+                    
+                </div>
+             </li></ul>
+            <div class="bg-dark-1 p-6    border-dashed border-2 border-yellow-500"> <li class="pb-3 sm:pb-4 m-0">
+                <div class="flex items-center  ">
+                   <div class="flex-shrink-0">
+                      <img class="  rounded-full" src="/img/Shield.png" alt="Neil image">
+                   </div>
+                   <div class="flex-1 min-w-0">
+                      
+                        <h2 class=" font-bold text-white lg:text-2xl sm:2xl">GUARANTEED RESULTS</h2>
+                                             
+                   </div>
+                   
+                    
+                </div>
+             </li>
+             <div class="  text-center gap-2 flex flex-col items-center">
+                <p class="text-white">We remove risk and are aligned to your results</p>
+                <a href="#" class="w-1/2 block mt-5 btn-primary py-1.5 lg:px-5 px-4 text-sm font-semibold   text-white uppercase">View pricing</a></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="w-full pt-20 md:pt-32 py-20 px-5 bg-[url('/img/Content-with-media-r.png')] bg-cover  ">
+      <div class="container mx-auto  md:px-5">        
+
+        <div class="lg:flex lg:flex-row md:flex-col gap-10   ">
+          <div class="w-full   justify-center content-center flex-col flex ">
+            <h3 class="text-3xl font-bold">
+                Old-fashioned B2B marketing agencies neglect 95% of your addressable market.
+            </h3>
+            <p class="align-middle">
+                Aliquam et orci ut magna imperdiet scelerisque. Nulla mollis tortor massa, non fermentum mauris mattis eget. Nam id libero congue, rutrum erat sit amet, auctor purus. Nulla facilisi.</p>
+<p class="align-middle">  Curabitur bibendum aliquet euismod. </p>
+          </div>
+          <div class="w-full  ">
+            <div class="relative">
+              <img class="object-cover shadow-2xl  mt-5"  src="/img/Teamwork.png"   />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="w-full pt-20 md:pt-20 py-20 px-5 bg-gray-100  ">
+        <div class="container mx-auto  md:px-5">        
+  
+          <div class="lg:flex lg:flex-row md:flex-col gap-10   ">
+            <div class="w-full  ">
+                <div class="relative">
+                  <img class="object-cover shadow-2xl  mt-5"  src="/img/Smartphone.png"   />
+                </div>
+              </div>
+            <div class="w-full  pt-20  justify-center content-center flex-col flex ">
+              <h3 class="text-3xl font-bold">
+                Full Market Appeal
+              </h3>
+              <p class="align-middle">
+                  Aliquam et orci ut magna imperdiet scelerisque. Nulla mollis tortor massa, non fermentum mauris mattis eget. Nam id libero congue, rutrum erat sit amet, auctor purus. Nulla facilisi.</p>
+  <p class="align-middle">  Curabitur bibendum aliquet euismod. </p>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+      <section class="w-full pt-20 md:pt-32 py-20 px-5 bg-[url('/img/Content-with-media-r.png')] bg-cover  ">
+        <div class="container mx-auto  md:px-5">        
+  
+          <div class="lg:flex lg:flex-row md:flex-col gap-10   ">
+            <div class="w-full   justify-center content-center flex-col flex ">
+              <h3 class="text-3xl font-bold">
+                The Strategy
+              </h3>
+              <p class="align-middle">
+                The Lead Gen Dept. helps you build relationships with your entire target market and establish your company as a thought leader willing to provide insights and information even when a prospect isn’t looking to buy right now. These relationships position you as their go-to partner when the time comes to do business. </p>
+            </div>
+            <div class="w-full  ">
+              <div class="relative">
+                <img class="object-cover shadow-2xl  mt-5"  src="/img/Teamwork-2.png"   />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+   
+      <section class="w-full bg-dark-1 px-5">
+        <footer class="container mx-auto">
+          <div
+            class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-10 py-16"
+          >
+            <div class=" "><img class=" w-56" src="/img/logo-white.png" /></div>
+            <div class=" ">
+              <h4 class="text-white font-semibold mb-4">Contact</h4>
+              <p class="text-white text-sm leading-7">+91 1234567890</p>
+              <p class="text-white text-sm leading-7">
+                113 momo Street, bd 721<br />NY 20012
+              </p>
+              <p class="text-white text-sm leading-7">momohelp@gmail.com</p>
+            </div>
+            <div class=" ">
+              <h4 class="text-white font-semibold mb-4"> Quick Links</h4>
+              <div class=" leading-7">
+                  
+                <div class="text-white"><a href="services.html">Services</a></div>
+                <div class="text-white"><a href="resources.html">Resources</a></div>
+                <div class="text-white"><a href="casestudies.html">Case studies</a></div>
+                <div class="text-white"><a href="pricing.html">Pricing</a></div>
+              </div>
+            </div>
+            <div class=" ">
+              <h4 class="text-white font-bold mb-4">&nbsp; </h4>
+              <div class=" leading-7">
+               
+              <div class="text-white"><a href="about.html"> About Us</a></div>
+              <div class="text-white"><a href="partner.html">Partners</a></div>
+              <div class="text-white"><a href="contact.html"> Contact Us</a></div>
+              <div class="text-white"><a href="#">Privacy Policy</a></div>
+            </div>
+          </div> </div>
+          <div class="flex container flex-row justify-between text-slate-50 p-5">
+            <div class="  ">© 2023 Agency Inc. All Rights Reserved.</div>
+            <div class="grid grid-flow-col gap-4">
+              <a
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  class="fill-current"
+                >
+                  <path
+                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
+                  ></path></svg></a>
+              <a
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  class="fill-current"
+                >
+                  <path
+                    d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"
+                  ></path></svg></a>
+              <a
+                ><svg                 xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  class="fill-current"
+                >
+                  <path
+                    d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"
+                  ></path></svg ></a>
+            </div>
+             
+          </div>
+        </footer>
+      </section>
+  </body>
+</html>

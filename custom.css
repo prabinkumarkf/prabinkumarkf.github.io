@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap");
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+.primary-color {
+  background-color: #ffc221;
+}
+.btn-primary {
+  border-radius: 30px;
+  border: 1px solid var(--Dark-100, #ffc221);
+  background: #ffc221;
+}
+.btn-secondary {
+  border-radius: 30px;
+  border: 1px solid #fff;
+}
+.bg-dark {
+  background: #1b2530;
+}
+.bg-dark-1 {
+  background: #222d39;
+}
+
+.color-primary {
+  color: #ffc221;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  align-items: center;
+  position: relative;
+  background-color: var(--light-400);
+}
+
+.h2 {
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 40px;
+  text-align: center;
+  line-height: normal;
+}
+.banner {
+  min-height: 624px;
+}
+
+.h3 {
+  font-weight: 400;
+
+  font-size: 22px;
+  text-align: center;
+
+  line-height: 27px;
+}
+
+.dotted-line {
+  position: absolute;
+
+  top: 154px;
+  left: 176px;
+  z-index: 0;
+}
+
+.map {
+  top: 215px;
+  left: 79px;
+  position: absolute;
+}
+
+.img-triangle {
+  left: 704px;
+  position: absolute;
+}
+
+.img-w {
+  left: 1147px;
+  position: absolute;
+}
+
+.image-shape1 {
+  top: 90px;
+  left: 711px;
+  position: absolute;
+  object-fit: cover;
+}
+
+.image-shape2 {
+  top: 90px;
+  left: 753px;
+  position: absolute;
+}
+
+.img-main {
+  position: absolute;
+
+  top: 90px;
+  left: 711px;
+}
+.image-ring {
+  top: 105px;
+  left: 796px;
+  position: absolute;
+}
+
+.what-makes-us h1 {
+  font-size: 40px;
+}
+
+.home .text-wrapper-5 {
+  color: #1b2530;
+}
+
+.what-makes-us h4 {
+  font-weight: 600;
+  color: #fff;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.what-makes-us p {
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 15px;
+}
+
+.bg-banner {
+  background-image: url("/img/bg-conferences.png");
+  background-size: cover;
+}
+
+.how-we-bg {
+  background-image: url("/img/Section7.png");
+  background-size: cover;
+}
+.cc-list {
+  list-style-image: url("/img/Done.png");
+}
+ /* service page */
+.service-banner {  
+  background:  linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%),  url('/img/service-ban.jpg'), rgb(0, 0, 0) 100% / cover no-repeat;}
+ 
+  .resources-banner{background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url('/img/r-banner.jpg'), rgb(0, 0, 0) 100% / cover no-repeat;}  
+  .contact-banner{background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url('/img/cont-banner.jpg'), rgb(0, 0, 0) 100% / cover no-repeat;} 
+  .pricing-banner{background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url('/img/price-banner.jpg'), rgb(0, 0, 0) 100% / cover no-repeat;} 
+  .about-banner{background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url('/img/company-ban.png'), rgb(0, 0, 0) 100% / cover no-repeat;} 
+  .cs-banner {background: url('/img/cs-banner.png') cover center bottom;}
+  .cs-banner{background:   url('/img/cs-banner.png'), rgb(255, 255, 255) 100% / cover no-repeat;} 
