@@ -136,8 +136,9 @@ body {
   background-size: cover;
 }
 .cc-list {
-  list-style-image: url("/img/done.png");
+  list-style-image: url("/img/done.png"); 
 }
+.cc-list li{margin-top: 10px;}
  /* service page */
 .service-banner {  
   background:  linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%),  url('/img/service-ban.jpg'), rgb(0, 0, 0) 100% / cover no-repeat;}
