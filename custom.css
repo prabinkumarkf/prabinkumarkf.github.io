@@ -132,11 +132,11 @@ body {
 }
 
 .how-we-bg {
-  background-image: url("/img/Section7.png");
+  background-image: url("/img/section7.png");
   background-size: cover;
 }
 .cc-list {
-  list-style-image: url("/img/Done.png");
+  list-style-image: url("/img/done.png");
 }
  /* service page */
 .service-banner {  
