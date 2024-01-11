@@ -36,25 +36,13 @@ body {
   background-color: var(--light-400);
 }
 
-.h2 {
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 40px;
-  text-align: center;
-  line-height: normal;
-}
+  
+ 
 .banner {
   min-height: 624px;
 }
 
-.h3 {
-  font-weight: 400;
-
-  font-size: 22px;
-  text-align: center;
-
-  line-height: 27px;
-}
+ 
 
 .dotted-line {
   position: absolute;
