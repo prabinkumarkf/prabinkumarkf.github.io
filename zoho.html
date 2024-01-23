@@ -11,6 +11,9 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
    <script src="https://cdn.tailwindcss.com"></script>
     <script
@@ -1593,7 +1596,764 @@ chat='true'>
    </div>
 </section>
 <!-- ====== Pricing Section End -->
+<!-- component -->
+
+<section class="bg-gray-200 pb-5"> 
+<style>
+   [x-cloak] {
+   display: none;
+   }
+</style>
+
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
+
+<div class="container mx-auto antialiased text-gray-900 " x-data="setup()">
+ <!-- Navbar -->
+ <nav>
+   <div class="flex items-center justify-between px-4 py-2">
+    
+
+     <!-- Mobile menu button -->
+     <button
+             @click="isNavOpen = !isNavOpen"
+             x-cloak
+             class="inline-flex items-center justify-center text-gray-400 rounded-md lg:hidden focus:outline-none focus:ring-2 focus:ring-indigo-500"
+             type="button"
+             aria-controls="mobile-menu"
+             :aria-expanded="isNavOpen ? 'true' : 'false'"
+             >
+       <span class="sr-only">Open main menu</span>
+
+       <!-- Menu icon -->
+       <svg
+            x-show="!isNavOpen"
+            class="w-8 h-8"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            aria-hidden="true"
+            >
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+       </svg>
+
+       <!-- X icon -->
+       <svg
+            x-show="isNavOpen"
+            class="w-8 h-8"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            aria-hidden="true"
+            >
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+       </svg>
+     </button>
+
+  
+   </div>
+
+ 
+ </nav>
+
+ <main class="mx-4 my-16">
+   <div class="text-center">
+      <div class="mx-auto w-full flex justify-center my-5"> 
+      <img class="w-56 " src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/workdrive.svg"></div>
+     <h1 class="mb-4 text-2xl font-normal md:text-3xl lg:text-4xl">
+      Pricing  <span class="font-semibold">that scales</span> with your <span class="font-semibold">business.</span>
+     </h1>
+     <p class="text-sm font-normal text-gray-400">
+      15-day free trial. No credit card required.
+     </p>
+      
+   </div>
+
+   <!-- Plan switch -->
+   <div class="flex items-center justify-center mt-10 space-x-4">
+     <span class="text-base font-medium"><span class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Save up to 19%</span>
+     Yearly</span>
+     <button
+             class="relative rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+             x-cloak
+             @click="billPlan == 'monthly' ? billPlan = 'annually' : billPlan = 'monthly'"
+             >
+       <div class="w-16 h-8 transition bg-blue-500 rounded-full shadow-md outline-none"></div>
+       <div
+            class="absolute inline-flex items-center justify-center w-6 h-6 transition-all duration-200 ease-in-out transform bg-white rounded-full shadow-sm top-1 left-1"
+            :class="{ 'translate-x-0': billPlan == 'monthly', 'translate-x-8': billPlan == 'annually' }"
+            ></div>
+     </button>
+     <span class="text-base font-medium">  Monthly    </span>
+   </div>
+
+   <!-- Plans -->
+   <div
+        class="flex flex-col items-center justify-center pb-16 mt-16 space-y-8 lg:flex-row lg:items-stretch lg:space-x-8 lg:space-y-0"
+        >
+     <template x-for="(plan, i) in plans" x-key="i">
+       <section class="flex flex-col w-full max-w-sm p-12 space-y-6 bg-white rounded-lg shadow-md">
+         <!-- Price -->
+         <div class="flex-shrink-0">
+           <span
+                 class="text-4xl font-medium tracking-tight"
+                 :class="plan.name == 'Basic' ? 'text-green-500' : ''"
+                 x-text="`₹${billPlan == 'monthly' ? plan.price.monthly : plan.price.annually}`"
+                 ></span>
+           <span class="text-gray-400" x-text="billPlan == 'monthly' ? '/month' : '/month'"></span>
+         </div>
+
+         <!--  -->
+         <div class="flex-shrink-0 pb-6 space-y-2 border-b">
+           <h2 class="text-2xl font-normal" x-text="plan.name"></h2>
+           <p class="text-sm text-gray-400" x-text="plan.discretion"></p>
+         </div>
+
+         <!-- Features -->
+         <ul class=" ">
+           <template x-for="(feature, i) in plan.features" x-key="i"   >
+             <li class="flex items-start">
+               <svg
+                    class="min-w-6 h-6 text-green-300"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="#226db4"
+                    >
+                 <path
+                       fill-rule="evenodd"
+                       d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                       clip-rule="evenodd"
+                       />
+               </svg>
+               <span class="ml-3 text-base font-medium" x-text="feature" ></span>
+             </li>
+           
+           </template>
+           
+         </ul>
+  
+         <!-- Button -->
+         <div class="flex-shrink-0 pt-4">
+           <button
+                   class="inline-flex items-center justify-center w-full max-w-xs px-4 py-2 transition-colors border rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                   :class="plan.name == 'Basic' ? 'bg-blue-500 text-white hover:bg-blue-500' : 'hover:bg-blue-500 hover:text-white'"
+                   x-text="`Get ${plan.name}`"
+                   ></button>
+         </div>
+         <ul class="flex-1 space-y-4">
+            <template x-for="(feature, i) in plan.features2" x-key="i"   >
+              <li class="flex items-start ">
+                <svg
+                     class="min-w-6 h-6 text-green-300"
+                     aria-hidden="true"
+                     xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 20 20"
+                     fill="#226db4"
+                     >
+                  <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd"
+                        />
+                </svg>
+                <span class="ml-3 text-base font-medium" x-text="feature" ></span>
+              </li>
+            
+            </template>
+            
+          </ul>
+       </section>
+     </template>
+   </div>
+ </main>
+
+  
+</div>
+
+<script>
+   const setup = () => {
+   return {
+       isNavOpen: false,
+
+       billPlan: 'monthly',
+
+       plans: [
+       {
+           name: 'STARTER',
+           discretion: 'A minimum of 3 users required',
+           price: {
+           monthly: 140,
+           annually: 170,
+           },
+           features: ['Storage starts at 1 TB/Team', 'After 10 users, get additional shared storage of 100 GB/new user', '10 GB upload limit per file'],
+           features2: ['Team Folders','Granular access controls', 'Sub-folder level sharing' , 'Zoho Office Suite','Preview for 200+ file formats','Universal content search','Encryption at rest (256-bit AES) and SSL/TLS encryption','Mobile access','Desktop sync','WorkDrive Genie for Windows','WorkDrive Genie for Mac','External file sharing','Unread notifications','Labels','Password-protected links','Follow updates','Unlimited file versioning','Client users','Templates','Groups','Admin dashboard','User management','Custom Data Retention','File locking','Upload files via email','Two-factor authentication', ],
+
+       },
+       {
+           name: 'TEAM',
+           discretion: 'A minimum of 3 users required',
+           price: {
+           monthly: 275,
+           annually: 340,
+           },
+           features: ['Storage starts at 1 TB/Team', 'After 10 users, get additional shared storage of 300 GB/new user', '10 GB upload limit per file'],
+           features2: ['Team Folders','Granular access controls', 'Sub-folder level sharing' , 'Zoho Office Suite','Preview for 200+ file formats','Universal content search','Encryption at rest (256-bit AES) and SSL/TLS encryption','Mobile access','Desktop sync','WorkDrive Genie for Windows','WorkDrive Genie for Mac','External file sharing','Unread notifications','Labels','Password-protected links','Follow updates','Unlimited file versioning','Client users','Templates','Groups','Admin dashboard','User management','Custom Data Retention','File locking','Upload files via email','Two-factor authentication','File activity and access stats', 'Team Folder activity timeline', 'Custom branding', 'Collect files',    ],
+       },
+       {
+           name: 'BUSINESS',
+           discretion: 'A minimum of 3 users required',
+           price: {
+           monthly: 550,
+           annually: 680,
+           },
+           features: ['Storage starts at 1 TB/Team', 'After 10 users, get additional shared storage of 500 GB/new user', '10 GB upload limit per file'],
+           features2: [ 'Data Templates and Custom Fields',  'Zip creation',  'Zip preview and extraction',  'Advanced admin controls',  'Device management',  'Custom Domain',  'Full content visibility and management',  'Audit trail',   ],
+       },
+       ],
+   }
+}
+</script>
+
+</section>
+ 
+ <section class=" px-5"> 
+        <div class="container mx-auto ">
+            <div class="p-5 text-center py-20">
+               <div class="mx-auto w-full flex justify-center my-5"> 
+                  <img class="w-56 " src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/workplace.svg"></div>
+                <h2 class="text-4xl font-bold">Get the complete set of tools needed for Workplace communication and collaboration.               </h2>
+                
+            </div>
+            <div class="p-5 grid grid-cols-1 md:grid-cols-3 md:align-middle gap-5">
+<!-- starter -->
+                <div class="p-5 shadow-md shadow-red-100 relative border border-red-100 hover:border-red-300 hover:shadow-red-300 rounded h-max">
+                  <span class="absolute top-0 px-10 py-2 bg-red-200 sm:-mt-5 rounded left-[calc(50%-65px)] shadow">Popular</span>
+                    <div class="text-center flex flex-col gap-2 py-5 text-gray-600">
+                        <h2 class="text-xl font-bold">STANDARD</h2>
+                       
+                        <p><span class="font-bold text-4xl">₹99</span></p>
+                        <p>/User /Month billed annually
+                        </p>
+                    </div>
+                    
+                    <ul class="px-2 py-5 flex flex-col gap-3">
+                        <li class="flex gap-2 items-center">
+                            <span class="fa fa-check-circle text-red-500"></span>
+                            <span class="text-gray-500">30 GB Mail storage per user</span>
+                        </li>
+                        <li class="flex gap-2 items-center">
+                            <span class="fa fa-check-circle text-red-500"></span>
+                            <span class="text-gray-500">10 GB WorkDrive storage per user (Shared)
+                           </span>
+                        </li>
+                        <p class="bg-gray-200 p-2">Zoho Mail
+                        </p>
+                        <li class="flex gap-2 items-center">
+                            <span class="fa fa-check-circle text-red-500"></span>
+                            <span class="text-gray-500">Email hosting for multiple domains                           </span>
+                        </li>
+                        <li class="flex gap-2 items-center">
+                            <span class="fa fa-check-circle text-red-500"></span>
+                            <span class="text-gray-500">Domain aliases and Email routing
+                           </span>
+                        </li>
+                        <li class="flex gap-2 items-center">
+                            <span class="fa fa-check-circle text-red-500"></span>
+                            <span class="text-gray-500">Huge Attachments upto 500 MB
+                           </span>
+                        </li>
+                        <li class="flex gap-2 items-center">
+                            <span class="fa fa-check-circle text-red-500"></span>
+                            <span class="text-gray-500">Email and Folder sharing                           </span>
+                        </li>
+                        <li class="flex gap-2 items-center">
+                           <span class="fa fa-check-circle text-red-500"></span>
+                           <span class="text-gray-500">Streams - Collaboration tool
+                           </span>
+                       </li>
+                       <li class="flex gap-2 items-center">
+                        <span class="fa fa-check-circle text-red-500"></span>
+                        <span class="text-gray-500">Offline access
+                        </span>
+                    </li>
+                    <li class="flex gap-2 items-center">
+                     <span class="fa fa-check-circle text-red-500"></span>
+                     <span class="text-gray-500">Email recall
+                     </span>
+                 </li>
+                 <li class="flex gap-2 items-center">
+                  <span class="fa fa-check-circle text-red-500"></span>
+                  <span class="text-gray-500">eWidget and Developer Space
+                  </span>
+              </li>
+              <li class="flex gap-2 items-center">
+               <span class="fa fa-check-circle text-red-500"></span>
+               <span class="text-gray-500">Calendar, Tasks, Notes and Bookmarks
+               </span>
+           </li>
+           <li class="flex gap-2 items-center">
+            <span class="fa fa-check-circle text-red-500"></span>
+            <span class="text-gray-500">IMAP/ POP access in email clients
+            </span>
+        </li>
+        <li class="flex gap-2 items-center">
+         <span class="fa fa-check-circle text-red-500"></span>
+         <span class="text-gray-500">Exchange Activesync
+         </span>
+     </li>
+     <li class="flex gap-2 items-center">
+      <span class="fa fa-check-circle text-red-500"></span>
+      <span class="text-gray-500">Mobile apps for iOS and Android
+      </span>
+  </li>
+  <li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">Resource booking (Calendar)
+   </span>
+</li>
+<p class="bg-gray-200 p-2">Zoho WorkDrive
+
+</p>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">10 GB File upload limit
+   </span>
+</li>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">Team folders
+   </span>
+</li>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">Granular access controls
+   </span>
+</li>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">External file sharing
+   </span>
+</li>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">Encryption at rest (256-bit AES) and SSL/TLS encryption
+   </span>
+</li>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">Preview 200+ file formats
+   </span>
+</li>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">Unread notifications
+   </span>
+</li>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">Admin Dashboard
+   </span>
+</li>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">User management
+   </span>
+</li>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">Password protected links
+   </span>
+</li>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">Desktop Sync
+   </span>
+</li>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">Mobile access
+   </span>
+</li>
+<p class="bg-gray-200 p-2">Zoho Office Suite
+
+
+</p>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">Fully featured office suite with Zoho Writer (for documents), Zoho Sheet (for spreadsheets) and Zoho Show (for presentations)
+   </span>
+</li>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">Unlimited Writer, Sheet, and Show files
+   </span>
+</li>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">Up to 50 collaborators in a document
+   </span>
+</li>
+<p class="bg-gray-200 p-2">Zoho Cliq
+</p>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">Searchable messages: Unlimited
+   </span>
+</li>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">File storage: 100GB for org
+   </span>
+</li>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">Max. participants per channel: 100
+   </span>
+</li>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">User provisioning and de-provisioning
+   </span>
+</li>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">Google/Google Apps sign-on
+   </span>
+</li>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">SAML based single sign-on (SSO)
+   </span>
+</li>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">Screen sharing
+   </span>
+</li>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">Remote Work
+   </span>
+</li>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">Read Receipts
+   </span>
+</li>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">Custom Domain
+   </span>
+</li>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">Custom Email
+   </span>
+</li>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">External channels
+   </span>
+</li>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">Announcement channels
+   </span>
+</li>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">Reports
+   </span>
+</li>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">Networks
+   </span>
+</li>
+<p class="bg-gray-200 p-2">Zoho Meeting</p>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">Video conferencing up to 10 participants
+   </span>
+</li>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">Screen sharing
+   </span>
+</li>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">Cloud storage for up to 10 recordings
+   </span>
+</li>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">Zoho Meeting app for iOS and Android
+   </span>
+</li>
+
+</ul>
+                    <button class="px-5 py-2 border shadow w-full bg-gray-50 border-gray-200 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded">Sign Up</button>
+                </div>
+
+<!-- standard -->
+                <div class="p-5 border shadow rounded h-max hover:border-gray-200 hover:shadow-gray-400">
+                     <div class="text-center flex flex-col gap-2 py-5 text-gray-600">
+                        <h2 class="text-xl font-bold ">PROFESSIONAL</h2>
+                       
+                        <p><span class="font-bold text-4xl">₹399</span> </p>
+                        <p>/User /Month billed annually
+                        </p>
+                    </div>
+                    
+                    <ul class="px-2 py-5 flex flex-col gap-3">
+                        <li class="flex gap-2 items-center">
+                            <span class="fa fa-check-circle text-red-500"></span>
+                            <span class="text-gray-500">100 GB Mail storage + 100 GB Archival storage per user
+
+                            </span>
+                        </li>
+                        <li class="flex gap-2 items-center">
+                            <span class="fa fa-check-circle text-red-500"></span>
+                            <span class="text-gray-500">100 GB WorkDrive storage per user (Shared)</span>
+                        </li>
+                        <p class="italic ">Everything in STANDARD +
+                        </p>
+                        <p class=" bg-gray-200 p-2">Zoho Mail
+
+</p>
+                        <li class="flex gap-2 items-center">
+                            <span class="fa fa-check-circle text-red-500"></span>
+                            <span class="text-gray-500">Huge Attachments upto 1 GB
+                           </span>
+                        </li>
+                        <li class="flex gap-2 items-center">
+                            <span class="fa fa-check-circle text-red-500"></span>
+                            <span class="text-gray-500">Archival and eDiscovery
+                           </span>
+                        </li>
+                        <li class="flex gap-2 items-center">
+                            <span class="fa fa-check-circle text-red-500"></span>
+                            <span class="text-gray-500">Email backup and restoration
+                           </span>
+                        </li>
+                        <li class="flex gap-2 items-center">
+                            <span class="fa fa-check-circle text-red-500"></span>
+                            <span class="text-gray-500">White labeling
+                           </span>
+                        </li>
+                        <li class="flex gap-2 items-center">
+                            <span class="fa fa-check-circle text-red-500"></span>
+                            <span class="text-gray-500">S-MIME
+                           </span>
+                        </li>
+                        <p class=" bg-gray-200 p-2">Zoho Meeting                        </p>
+                        <li class="flex gap-2 items-center">
+                            <span class="fa fa-check-circle text-red-500"></span>
+                            <span class="text-gray-500">Video conferencing up to 100 participants
+                           </span>
+                        </li>
+                        <p class=" bg-gray-200 p-2">Zoho Connect                        </p>
+
+                        <li class="flex gap-2 items-center">
+                            <span class="fa fa-check-circle text-red-500"></span>
+                            <span class="text-gray-500">Unlimited groups
+                           </span>
+                        </li>
+                        <li class="flex gap-2 items-center">
+                           <span class="fa fa-check-circle text-red-500"></span>
+                           <span class="text-gray-500">  Forums
+                          </span>
+                       </li>
+                       <li class="flex gap-2 items-center">
+                        <span class="fa fa-check-circle text-red-500"></span>
+                        <span class="text-gray-500">  Task and knowledge management
+
+                       </span>
+                    </li>
+                    <li class="flex gap-2 items-center">
+                     <span class="fa fa-check-circle text-red-500"></span>
+                     <span class="text-gray-500">  Unlimited custom applications
+
+                    </span>
+                 </li>
+                 <li class="flex gap-2 items-center">
+                  <span class="fa fa-check-circle text-red-500"></span>
+                  <span class="text-gray-500">  External users access
+
+                 </span>
+              </li>
+              <p class=" bg-gray-200 p-2">Zoho Cliq            </p>
+
+              <li class="flex gap-2 items-center">
+               <span class="fa fa-check-circle text-red-500"></span>
+               <span class="text-gray-500">  File storage: 100GB per user
+
+              </span>
+           </li>
+           <li class="flex gap-2 items-center">
+            <span class="fa fa-check-circle text-red-500"></span>
+            <span class="text-gray-500">  Max. participants per channel: 20,000
+
+           </span>
+        </li>
+        <li class="flex gap-2 items-center">
+         <span class="fa fa-check-circle text-red-500"></span>
+         <span class="text-gray-500">  Rebranding
+
+        </span>
+     </li>
+     <li class="flex gap-2 items-center">
+      <span class="fa fa-check-circle text-red-500"></span>
+      <span class="text-gray-500">  Custom user roles and permissions
+
+     </span>
+  </li>
+  <li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">  User groups (Teams)
+
+  </span>
+</li>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">  Multi-team channels
+
+  </span>
+</li>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">  Exclusive security policy for teams
+
+  </span>
+</li>
+<li class="flex gap-2 items-center">
+   <span class="fa fa-check-circle text-red-500"></span>
+   <span class="text-gray-500">  Guest Chat
+
+  </span>
+</li>
+ 
+
+                    </ul>
+
+                    <button class="px-5 py-2 border shadow w-full bg-gray-50 border-gray-200 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded">Sign Up</button>
+                </div>
+
+<!-- pro -->
+                <div class="p-5 border shadow rounded h-max hover:border-gray-200 hover:shadow-gray-400">
+                    <div class="text-center flex flex-col gap-2 py-5 text-gray-600">
+                        <h2 class="text-xl font-bold">MAIL ONLY PLAN
+                        </h2>
+                        <p>Starts From
+
+</p>
+                        <p><span class="font-bold text-4xl">₹58<sub> .34</sub></span></p>
+                        <span>/User /Month billed annually
+                        </span>
+                    </div>
+                    
+                    <ul class="px-2 py-5 flex flex-col gap-3">
+                     <p class=" bg-gray-200 p-2">Mail  </p>
+
+                        <li class="flex gap-2 items-center">
+                            <span class="fa fa-check-circle text-red-500"></span>
+                            <span class="text-gray-500">Email hosting for multiple domains
+                           </span>
+                        </li>
+                        <li class="flex gap-2 items-center">
+                            <span class="fa fa-check-circle text-red-500"></span>
+                            <span class="text-gray-500">Domain aliases
+                           </span>
+                        </li>
+                        <li class="flex gap-2 items-center">
+                            <span class="fa fa-check-circle text-red-500"></span>
+                            <span class="text-gray-500">Email routing
+                           </span>
+                        </li>
+                        <li class="flex gap-2 items-center">
+                            <span class="fa fa-check-circle text-red-500"></span>
+                            <span class="text-gray-500">Email and Folder sharing
+                           </span>
+                        </li>
+                        <li class="flex gap-2 items-center">
+                            <span class="fa fa-check-circle text-red-500"></span>
+                            <span class="text-gray-500">Streams - Collaboration tool
+                           </span>
+                        </li>
+                        <li class="flex gap-2 items-center">
+                            <span class="fa fa-check-circle text-red-500"></span>
+                            <span class="text-gray-500">Offline access
+                           </span>
+                        </li>
+                        <li class="flex gap-2 items-center">
+                            <span class="fa fa-check-circle text-red-500"></span>
+                            <span class="text-gray-500">Email recall
+                           </span>
+                        </li>
+                        <li class="flex gap-2 items-center">
+                            <span class="fa fa-check-circle text-red-500"></span>
+                            <span class="text-gray-500">eWidget and Developer Space
+                           </span>
+                        </li>
+                        <li class="flex gap-2 items-center">
+                            <span class="fa fa-check-circle text-red-500"></span>
+                            <span class="text-gray-500">Tasks, Notes and Bookmarks
+                           </span>
+                        </li>
+                        <li class="flex gap-2 items-center">
+                            <span class="fa fa-check-circle text-red-500"></span>
+                            <span class="text-gray-500">IMAP/ POP access in email clients
+                           </span>
+                        </li>
+                        <li class="flex gap-2 items-center">
+                            <span class="fa fa-check-circle text-red-500"></span>
+                            <span class="text-gray-500">Exchange Activesync
+                           </span>
+                        </li>
+                        <li class="flex gap-2 items-center">
+                           <span class="fa fa-check-circle text-red-500"></span>
+                           <span class="text-gray-500">Mobile apps for iOS and Android                          </span>
+                       </li>
+                       <p class=" bg-gray-200 p-2">Calendar  </p>
+                       <li class="flex gap-2 items-center">
+                        <span class="fa fa-check-circle text-red-500"></span>
+                        <span class="text-gray-500">Shared calendars
+                        </span>
+                    </li>
+                    <li class="flex gap-2 items-center">
+                     <span class="fa fa-check-circle text-red-500"></span>
+                     <span class="text-gray-500">Group Calendars
+                     </span>
+                 </li>
+                 <li class="flex gap-2 items-center">
+                  <span class="fa fa-check-circle text-red-500"></span>
+                  <span class="text-gray-500">Appointment Scheduling
+                  </span>
+              </li>
+              <li class="flex gap-2 items-center">
+               <span class="fa fa-check-circle text-red-500"></span>
+               <span class="text-gray-500">Calendar Sync
+               </span>
+           </li>
+           <li class="flex gap-2 items-center">
+            <span class="fa fa-check-circle text-red-500"></span>
+            <span class="text-gray-500">Calendar on mobile
+            </span>
+        </li>
+        
+
+                    </ul>
+                    <button class="px-5 py-2 border shadow w-full bg-gray-50 border-gray-200 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded">Learn More</button>
+                </div>
+            </div>
+        </div>
+      </section>
 <!-- ====== About Section Start -->
+
+
 <section
    class="overflow-hidden pt-20 pb-12 lg:pt-[120px] lg:pb-[90px] bg-gray-200  "
    >
