@@ -327,33 +327,20 @@
                 />
               </div>
 
-              <div class="sm:col-span-2">
+             <!--  <div class="sm:col-span-2">
                 <h5 class="font-bold pb-3">Select Subject?</h5>
 
-                <div class="flex">
+                <div class="flex" id="radioType">
                   <div class="flex items-center me-4">
-                    <input
-                      required
-                      id="radio1"
-                      type="radio"
-                      value="B2B Lead generation"
-                      name="radio-group"
+                    <input required type="radio" value="B2B Lead generation"  name="subject"
                       class="w-4 h-4 text-black bg-white border-black focus:ring-black"
                     />
-                    <label
-                      for="radio1"
-                      class="ms-2 text-sm font-medium text-gray-900"
-                    >
+                    <label for="radio1"   class="ms-2 text-sm font-medium text-gray-900" >
                       B2B Lead generation</label
                     >
                   </div>
                   <div class="flex items-center me-4">
-                    <input
-                      required
-                      id="radio2"
-                      type="radio"
-                      value="Zoho services"
-                      name="radio-group"
+                    <input  required type="radio" value="Zoho services" name="subject"
                       class="w-4 h-4 text-black bg-white border-black focus:ring-black"
                     />
                     <label
@@ -363,7 +350,7 @@
                     >
                   </div>
                 </div>
-              </div>
+              </div> -->
               <div class="sm:col-span-2">
                 <label
                   for="message"
@@ -395,7 +382,7 @@
       (function () {
         emailjs.init("LmLtsRoKxX8n8oDp4");
       })();
-
+     
       document
         .getElementById("formsp")
         .addEventListener("submit", function (event) {
@@ -404,7 +391,8 @@
             lname: document.getElementById("lname").value,
             email: document.getElementById("email").value,
             phone: document.getElementById("phone").value,
-            subject: document.getElementById("subject").value,
+            
+           subject: 'enquiry'  ,
             message: document.getElementById("message").value,
           };
 
@@ -418,7 +406,7 @@
               document.getElementById("lname").value = "";
               document.getElementById("email").value = "";
               document.getElementById("phone").value = "";
-              document.getElementById("subject").value = "";
+             // document.getElementById("radioType").value = "";
               document.getElementById("message").value = "";
               console.log(res);
               alert("Your message sent successfully!!");
