@@ -143,13 +143,50 @@ chat='true'>
                 href="contact.html"
                 class="block py-2 px-3 md:p-0   hover:text-gray-300"
                 >Contact
-              </a> <li>
-              <a
-                href="zoho.html"
-                class="block py-2 px-3 md:p-0  text-gray-500 hover:text-gray-300"
-                >Zoho
-              </a>
-            </li>
+              </a>  <li>
+               <button
+                 id="dropdownNavbarLink1"
+                 data-dropdown-toggle="dropdownNavbar1"
+                 class="flex items-center justify-between w-full block py-2 px-3 md:p-0 hover:text-gray-300"            >
+                 Products                <svg
+                   class="w-2.5 h-2.5 ms-2.5"
+                   aria-hidden="true"
+                   xmlns="http://www.w3.org/2000/svg"
+                   fill="none"
+                   viewBox="0 0 10 6"
+                 ><path
+                     stroke="currentColor"
+                     stroke-linecap="round"
+                     stroke-linejoin="round"
+                     stroke-width="2"
+                     d="m1 1 4 4 4-4"
+                   />
+                 </svg>
+               </button>
+               <!-- Dropdown menu -->
+               <div
+                 id="dropdownNavbar1"
+                 class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44"
+               >
+                 <ul
+                   class="py-2 text-sm text-gray-700"
+                   aria-labelledby="dropdownLargeButton"
+                 >
+                   <li>
+                     <a  href="zoho.html"  class="block px-4 py-2 hover:bg-gray-100  "
+                       >Zoho</a
+                     >
+                   </li>
+                   <li>
+                     <a
+                       href="freshwork.html"
+                       class="block px-4 py-2 hover:bg-gray-100 text-gray-500"
+                       >Fresh Work</a
+                     >
+                   </li>
+                 </ul>
+               </div>
+             </li>
           </ul>
         </div>
       </div>
@@ -312,19 +349,19 @@ chat='true'>
    <!-- Plan switch -->
    <div class="flex items-center justify-center mt-10 space-x-4">
      <span class="text-base font-medium"><span class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Save up to 19%</span>
-     Yearly</span>
+     USD</span>
      <button
              class="relative rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
              x-cloak
              @click="billPlan == 'monthly' ? billPlan = 'annually' : billPlan = 'monthly'"
              >
-       <div class="w-16 h-8 transition bg-blue-500 rounded-full shadow-md outline-none"></div>
+       <div class="w-16 h-8 transition bg-[#226db4] rounded-full shadow-md outline-none"></div>
        <div
             class="absolute inline-flex items-center justify-center w-6 h-6 transition-all duration-200 ease-in-out transform bg-white rounded-full shadow-sm top-1 left-1"
             :class="{ 'translate-x-0': billPlan == 'monthly', 'translate-x-8': billPlan == 'annually' }"
             ></div>
      </button>
-     <span class="text-base font-medium">  Monthly    </span>
+     <span class="text-base font-medium">  INR    </span>
    </div>
 
    <!-- Plans -->
@@ -335,12 +372,12 @@ chat='true'>
        <section class="flex flex-col w-full max-w-sm p-12 space-y-6 bg-white rounded-lg shadow-md">
          <!-- Price -->
          <div class="flex-shrink-0">
-           <span
-                 class="text-4xl font-medium tracking-tight"
+            <span class="text-[#226db4] font-semibold text-2xl" x-text="billPlan == 'monthly' ? '$' : '₹'"></span> <span
+                 class="text-4xl font-medium tracking-tight "
                  :class="plan.name == 'Basic' ? 'text-green-500' : ''"
-                 x-text="`$${billPlan == 'monthly' ? plan.price.monthly : plan.price.annually}`"
+                 x-text="`${billPlan == 'monthly' ? plan.price.monthly : plan.price.annually}`"
                  ></span>
-           <span class="text-gray-400" x-text="billPlan == 'monthly' ? '/month' : '/month'"></span>
+           
          </div>
 
          <!--  -->
@@ -423,8 +460,8 @@ chat='true'>
            name: 'STARTER',
            discretion: 'A minimum of 3 users required',
            price: {
-           monthly: 1.68,
-           annually: 2.04,
+           monthly:   2.50,
+           annually:  140,
            },
            features: ['Storage starts at 1 TB/Team', 'After 10 users, get additional shared storage of 100 GB/new user', '10 GB upload limit per file'],
            features2: ['Team Folders','Granular access controls', 'Sub-folder level sharing' , 'Zoho Office Suite','Preview for 200+ file formats','Universal content search','Encryption at rest (256-bit AES) and SSL/TLS encryption','Mobile access','Desktop sync','WorkDrive Genie for Windows','WorkDrive Genie for Mac','External file sharing','Unread notifications','Labels','Password-protected links','Follow updates','Unlimited file versioning','Client users','Templates','Groups','Admin dashboard','User management','Custom Data Retention','File locking','Upload files via email','Two-factor authentication', ],
@@ -434,8 +471,8 @@ chat='true'>
            name: 'TEAM',
            discretion: 'A minimum of 3 users required',
            price: {
-           monthly: 3.31,
-           annually: 4.09,
+           monthly: 4.50,
+           annually: 275,
            },
            features: ['Storage starts at 1 TB/Team', 'After 10 users, get additional shared storage of 300 GB/new user', '10 GB upload limit per file'],
            features2: ['Team Folders','Granular access controls', 'Sub-folder level sharing' , 'Zoho Office Suite','Preview for 200+ file formats','Universal content search','Encryption at rest (256-bit AES) and SSL/TLS encryption','Mobile access','Desktop sync','WorkDrive Genie for Windows','WorkDrive Genie for Mac','External file sharing','Unread notifications','Labels','Password-protected links','Follow updates','Unlimited file versioning','Client users','Templates','Groups','Admin dashboard','User management','Custom Data Retention','File locking','Upload files via email','Two-factor authentication','File activity and access stats', 'Team Folder activity timeline', 'Custom branding', 'Collect files',    ],
@@ -444,8 +481,8 @@ chat='true'>
            name: 'BUSINESS',
            discretion: 'A minimum of 3 users required',
            price: {
-           monthly: 6.62,
-           annually: 8.18,
+           monthly: 9,
+           annually: 550,
            },
            features: ['Storage starts at 1 TB/Team', 'After 10 users, get additional shared storage of 500 GB/new user', '10 GB upload limit per file'],
            features2: [ 'Data Templates and Custom Fields',  'Zip creation',  'Zip preview and extraction',  'Advanced admin controls',  'Device management',  'Custom Domain',  'Full content visibility and management',  'Audit trail',   ],
@@ -474,7 +511,7 @@ chat='true'>
 
    <!-- Plan switch -->
    <div class="flex items-center justify-center mt-10 space-x-4">
-     <span class="text-base font-medium">Bill Annually</span>
+     <span class="text-base font-medium">USD</span>
      <button
              class="relative rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
              x-cloak
@@ -486,7 +523,7 @@ chat='true'>
             :class="{ 'translate-x-0': billPlan == 'monthly', 'translate-x-8': billPlan == 'annually' }"
             ></div>
      </button>
-     <span class="text-base font-medium">Bill Monthly </span>
+     <span class="text-base font-medium">INR</span>
    </div>
 
    <!-- Plans -->
@@ -497,12 +534,12 @@ chat='true'>
        <section class="flex flex-col w-full max-w-sm p-12 space-y-6 bg-white rounded-lg shadow-md">
          <!-- Price -->
          <div class="flex-shrink-0">
-           <span
+            <span class="text-red-500 font-semibold text-2xl" x-text="billPlan == 'monthly' ? '$' : '₹'  "></span> <span
                  class="text-4xl font-medium tracking-tight"
                  :class="plan.name == 'Basic' ? 'text-green-500' : ''"
-                 x-text="`$${billPlan == 'monthly' ? plan.price.monthly : plan.price.annually}`"
+                 x-text="`${billPlan == 'monthly' ? plan.price.monthly : plan.price.annually}`"
                  ></span>
-           <span class="text-gray-400" x-text="billPlan == 'monthly' ? '/year' : '/month'  "></span>
+         
          </div>
 
          <!--  -->
@@ -516,7 +553,7 @@ chat='true'>
            <template x-for="(feature, i) in plan.features" x-key="i">
              <li class="flex items-start">
                <svg
-                    class="min-w-6 h-6 text-red-300"
+                    class="min-w-6 h-6 text-red-500"
                     aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
@@ -562,8 +599,8 @@ chat='true'>
            name: 'STANDARD',
            discretion: '/User /Month billed annually',
            price: {
-           monthly: 1.19,
-           annually: 1.55,
+           monthly: 1,
+           annually: 99,
            },
            features: ['30 GB Mail storage per user', '10 GB WorkDrive storage per user (Shared)', ' Email hosting for multiple domains', 'Domain aliases and Email routing', 'Huge Attachments upto 500 MB', 'Email and Folder sharing', 'Streams - Collaboration tool', 'Offline access', 'Email recall', 'eWidget and Developer Space', 'Calendar, Tasks, Notes and Bookmarks', 'IMAP/ POP access in email clients', 'Exchange Activesync', 'Mobile apps for iOS and Android', 'Resource booking (Calendar)','10 GB File upload limit', 'Team folders', 'Granular access controls', 'External file sharing', 'Encryption at rest (256-bit AES) and SSL/TLS encryption', 'Preview 200+ file formats', 'Unread notifications', 'Admin Dashboard', 'User management', 'Password protected links', 'Desktop Sync', 'Mobile access',   'Fully featured office suite with Zoho Writer (for documents), Zoho Sheet (for spreadsheets) and Zoho Show (for presentations)', 'Unlimited Writer, Sheet, and Show files', 'Up to 50 collaborators in a document', 'Searchable messages: Unlimited', 'File storage: 100GB for org', 'Max. participants per channel: 100', 'User provisioning and de-provisioning', 'Google/Google Apps sign-on', 'SAML based single sign-on (SSO)', 'Screen sharing', 'Remote Work', 'Read Receipts', 'Custom Domain', 'Custom Email', 'External channels', 'Announcement channels', 'Reports', 'Networks', 'Video conferencing up to 10 participants', 'Screen sharing', 'Cloud storage for up to 10 recordings', 'Zoho Meeting app for iOS and Android', ],
           
@@ -572,8 +609,8 @@ chat='true'>
            name: 'PROFESSIONAL',
            discretion: '/User /Month billed annually',
            price: {
-           monthly: 4.80,
-           annually: 5.88,
+           monthly: 6,
+           annually: 399,
            },
            features: ['100 GB Mail storage + 100 GB Archival storage per user', '100 GB WorkDrive storage per user (Shared)', 'Huge Attachments upto 1 GB', 'Archival and eDiscovery', 'Email backup and restoration', 'White labeling', 'S-MIME', 'Video conferencing up to 100 participants', 'Unlimited groups', 'Forums', 'Task and knowledge management', 'Unlimited custom applications', 'External users access', 'File storage: 100GB per user', 'Max. participants per channel: 20,000', 'Rebranding', 'Custom user roles and permissions', 'User groups (Teams)', 'Multi-team channels', 'Exclusive security policy for teams', 'Guest Chat', ],
             
@@ -582,8 +619,8 @@ chat='true'>
            name: 'MAIL ONLY PLAN',
            discretion: '/User /Month billed annually.',
            price: {
-           monthly: 0.70,
-           annually: 'Yearly subscriptions only',
+           monthly: 1,
+           annually:58.34,
            },
            features: ['Email hosting for multiple domains', 'Domain aliases', 'Email routing', 'Email and Folder sharing', 'Streams - Collaboration tool', 'Offline access', 'Email recall', 'eWidget and Developer Space', 'Tasks, Notes and Bookmarks', 'IMAP/ POP access in email clients', 'Exchange Activesync', 'Mobile apps for iOS and Android', 'Shared calendars', 'Group Calendars', 'Appointment Scheduling', 'Calendar Sync', 'Calendar on mobile',  ],
        },
