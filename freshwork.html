@@ -61,11 +61,11 @@
               <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
                 <li>
                   <a href="partner.html"
-                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Partner</a>
+                    class="block px-4 py-2 hover:bg-gray-100   ">Partner</a>
                 </li>
                 <li>
                   <a href="about.html"
-                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">About</a>
+                    class="block px-4 py-2 hover:bg-gray-100   ">About</a>
                 </li>
               </ul>
             </div>
@@ -152,125 +152,288 @@
       </div>
     </div>
   </section>
-  <section>
-    <!-- component -->
-    <style>
-      [x-cloak] {
-        display: none;
-      }
-    </style>
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
-    <div class="container mx-auto antialiased text-gray-900 bg-white" x-data="setup()">
-      <main class="mx-4 my-16">
-        <div class="text-center">
-          <h1 class="mb-4 text-2xl font-normal md:text-3xl lg:text-4xl">
-            Customer <span class="font-semibold">Service</span> Suite <span class="font-semibold">pricing</span>
-          </h1>
-          <p class="text-sm font-normal text-gray-400">
-            All-in-one, easy-to-use, omnichannel customer service solution—with an AI boost
-          </p>
-        </div>
-        <!-- Plan switch -->
-        <div class="flex items-center justify-center mt-10 space-x-4">
-          <span class="text-base font-medium">USD</span>
-          <button class="relative rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-            x-cloak @click="billPlan == 'monthly' ? billPlan = 'annually' : billPlan = 'monthly'">
-            <div class="w-16 h-8 transition bg-blue-500 rounded-full shadow-md outline-none"></div>
+ 
+  <section class="">
+    <div
+   x-data="
+   {
+   openTab: 1,
+   activeClasses: 'bg-white text-blue-500',
+   inactiveClasses: 'text-body-color     hover:bg-blue-500 hover:text-white',
+   }
+   "
+   class="w-full mb-14 "
+   >
+   <div
+      class="flex flex-col flex-wrap   justify-center bg-blue-500    py-3 px-4 sm:flex-row"
+      >
+      <a
+         href="javascript:void(0)"
+         @click="openTab = 1"
+         :class="openTab === 1 ? activeClasses : inactiveClasses"
+         class="px-4 py-3 text-sm font-medium rounded-md md:text-base lg:px-6"
+         >
+         Customer Service
+      </a>
+      <a
+         href="javascript:void(0)"
+         @click="openTab = 2"
+         :class="openTab === 2 ? activeClasses : inactiveClasses"
+         class="px-4 py-3 text-sm font-medium rounded-md md:text-base lg:px-6"
+         >
+         IT Service
+      </a>
+      <a
+         href="javascript:void(0)"
+         @click="openTab = 3"
+         :class="openTab === 3 ? activeClasses : inactiveClasses"
+         class="px-4 py-3 text-sm font-medium rounded-md md:text-base lg:px-6"
+         >
+         CRM
+      </a>
+    
+   </div>
+   <div>
+      <div
+         x-show="openTab === 1"
+         class="p-6 text-base leading-relaxed text-body-color  "
+         >
+         <div
+   x-data="
+   {
+   openTab: 1,
+   activeClasses: 'bg-blue-500 text-white',
+   inactiveClasses: 'text-body-color     hover:bg-blue-500 hover:text-white',
+   }
+   "
+   class="w-full mb-14"
+   >
+   <div
+      class="flex flex-col flex-wrap rounded-lg border justify-center  border-[#E4E4E4] py-3 px-4 sm:flex-row"
+      >
+      <a
+         href="javascript:void(0)"
+         @click="openTab = 1"
+         :class="openTab === 1 ? activeClasses : inactiveClasses"
+         class="px-4 py-3 text-sm font-medium rounded-md md:text-base lg:px-6"
+         >
+         Customer Service Suite
+
+      </a>
+      <a
+         href="javascript:void(0)"
+         @click="openTab = 2"
+         :class="openTab === 2 ? activeClasses : inactiveClasses"
+         class="px-4 py-3 text-sm font-medium rounded-md md:text-base lg:px-6"
+         >
+         Freshdesk
+      </a>
+      <a
+         href="javascript:void(0)"
+         @click="openTab = 3"
+         :class="openTab === 3 ? activeClasses : inactiveClasses"
+         class="px-4 py-3 text-sm font-medium rounded-md md:text-base lg:px-6"
+         >
+         Freshchat
+
+      </a>
+      <a
+         href="javascript:void(0)"
+         @click="openTab = 4"
+         :class="openTab === 4 ? activeClasses : inactiveClasses"
+         class="px-4 py-3 text-sm font-medium rounded-md md:text-base lg:px-6"
+         >
+         Freshcaller
+      </a>
+   </div>
+   <div>
+      <div
+         x-show="openTab === 1"
+         class="p-6 text-base leading-relaxed text-body-color  "
+         >
+         <!-- Customer Service Suite -->
+         <style>
+          [x-cloak] {
+            display: none;
+          }
+        </style>
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
+        <div class="container mx-auto antialiased text-gray-900 bg-white" x-data="css()">
+          <main class="mx-4 my-16">
+            <div class="text-center">
+              <h1 class="mb-4 text-2xl font-normal md:text-3xl lg:text-4xl">
+                Customer <span class="font-semibold">Service</span> Suite <span class="font-semibold">pricing</span>
+              </h1>
+              <p class="text-sm font-normal text-gray-400">
+                All-in-one, easy-to-use, omnichannel customer service solution—with an AI boost
+              </p>
+            </div>
+            <!-- Plan switch -->
+            <div class="flex items-center justify-center mt-10 space-x-4">
+              <span class="text-base font-medium">Monthly</span>
+              <button class="relative rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                x-cloak @click="billPlan == 'monthly' ? billPlan = 'annually' : billPlan = 'monthly'">
+                <div class="w-16 h-8 transition bg-blue-500 rounded-full shadow-md outline-none"></div>
+                <div
+                  class="absolute inline-flex items-center justify-center w-6 h-6 transition-all duration-200 ease-in-out transform bg-white rounded-full shadow-sm top-1 left-1"
+                  :class="{ 'translate-x-0': billPlan == 'monthly', 'translate-x-8': billPlan == 'annually' }"></div>
+              </button>
+              <span class="text-base font-medium">Annualy</span>
+            </div>
+            <!-- Plans -->
             <div
-              class="absolute inline-flex items-center justify-center w-6 h-6 transition-all duration-200 ease-in-out transform bg-white rounded-full shadow-sm top-1 left-1"
-              :class="{ 'translate-x-0': billPlan == 'monthly', 'translate-x-8': billPlan == 'annually' }"></div>
-          </button>
-          <span class="text-base font-medium">INR</span>
+              class="flex flex-col items-center justify-center mt-16 space-y-8 lg:flex-row lg:items-stretch lg:space-x-8 lg:space-y-0">
+              <template x-for="(plan, i) in plans" x-key="i">
+                <section class="flex flex-col w-full max-w-sm p-12 space-y-6 bg-white rounded-lg shadow-md">
+                  <!-- Price -->
+                  <div class="flex-shrink-0 text-center">
+                    <span class="text-4xl font-medium tracking-tight text-center"
+                      :class="plan.name == 'Basic' ? 'text-blue-500' : ''"
+                      x-text="`$${billPlan == 'monthly' ? plan.price.monthly : plan.price.annually}`"></span>
+                    <span class="text-gray-400 text-center" x-text="billPlan == 'monthly' ? '/monthly' : '/annually'"></span>
+                  </div>
+                  <!--  -->
+                  <div class="flex-shrink-0 pb-6 space-y-2 border-b text-center">
+                   
+                    <h2 class="text-2xl font-bold text-center" x-text="plan.name"></h2>
+                    <p class="text-sm text-gray-600 text-center" x-text="plan.growth"></p>
+                    <p class="text-sm text-gray-400 text-center" x-text="plan.discretion"></p>
+                 
+                  </div>
+                  <!-- Features -->
+                  <ul class="flex-1 space-y-4">
+                    <p class="text-sm text-gray-600 text-center font-semibold" x-text="plan.heading"></p>
+                    <template x-for="(feature, i) in plan.features" x-key="i">
+                      
+                      <li class="flex items-start">
+                        <svg class="min-w-6 h-6 text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clip-rule="evenodd" />
+                        </svg>
+                        <span class="ml-3 text-base font-medium" x-text="feature"></span>
+                      </li>
+                    </template>
+                  </ul>
+                  <!-- Button -->
+                  <div class="flex-shrink-0 pt-4">
+                    <button
+                      class="inline-flex items-center justify-center w-full max-w-xs px-4 py-2 transition-colors border rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      :class="plan.name == 'Basic' ? 'bg-indigo-500 text-white hover:bg-indigo-700' : 'hover:bg-indigo-500 hover:text-white'"
+                      x-text="`Get ${plan.name}`"></button>
+                  </div>
+                </section>
+              </template>
+            </div>
+          </main>
         </div>
-        <!-- Plans -->
-        <div
-          class="flex flex-col items-center justify-center mt-16 space-y-8 lg:flex-row lg:items-stretch lg:space-x-8 lg:space-y-0">
-          <template x-for="(plan, i) in plans" x-key="i">
-            <section class="flex flex-col w-full max-w-sm p-12 space-y-6 bg-white rounded-lg shadow-md">
-              <!-- Price -->
-              <div class="flex-shrink-0 text-center">
-                <span class="text-4xl font-medium tracking-tight text-center"
-                  :class="plan.name == 'Basic' ? 'text-blue-500' : ''"
-                  x-text="`${billPlan == 'monthly' ? plan.price.monthly : plan.price.annually}`"></span>
-                <span class="text-gray-400 text-center" x-text="billPlan == 'monthly' ? 'USD' : 'INR'"></span>
-              </div>
-              <!--  -->
-              <div class="flex-shrink-0 pb-6 space-y-2 border-b text-center">
-                <p class="text-sm text-gray-600 text-center" x-text="plan.package"></p>
-                <h2 class="text-2xl font-bold text-center" x-text="plan.name"></h2>
-               
-                <p class="text-sm text-gray-600 text-center" x-text="plan.growth"></p>
-                <p class="text-sm text-gray-400 text-center" x-text="plan.discretion"></p>
-              </div>
-              <!-- Features -->
-              <ul class="flex-1 space-y-4">
-                <template x-for="(feature, i) in plan.features" x-key="i">
-                  <li class="flex items-start">
-                    <svg class="min-w-6 h-6 text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20" fill="currentColor">
-                      <path fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd" />
-                    </svg>
-                    <span class="ml-3 text-base font-medium" x-text="feature"></span>
-                  </li>
-                </template>
-              </ul>
-              <!-- Button -->
-              <div class="flex-shrink-0 pt-4">
-                <button
-                  class="inline-flex items-center justify-center w-full max-w-xs px-4 py-2 transition-colors border rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                  :class="plan.name == 'Basic' ? 'bg-indigo-500 text-white hover:bg-indigo-700' : 'hover:bg-indigo-500 hover:text-white'"
-                  x-text="`Get ${plan.name}`"></button>
-              </div>
-            </section>
-          </template>
-        </div>
-      </main>
-    </div>
-    <script>
-      const setup = () => {
-        return {
-          isNavOpen: false,
-          billPlan: 'monthly',
-          plans: [
-            {
-              name: 'Growth',
-              growth: 'For fast growth',
-              package: 'Yearly',
-              discretion: '/agent/month, billed annually',
-              price: {
-                monthly: 27.79,
-                annually: 2299,
-              },
-              features: ['Web widget', 'Messaging channels', 'Email', 'Customer portal', 'Knowledge base', 'Chatbots', 'Unified agent inbox', 'Conversation switch', 'Proactive support journeys and campaigns', 'Agent collision detection', 'Custom agent status', 'Collaboration - Threads and tasks', 'Customizable contact, conversation and ticket properties', 'Customer 360 - Contact events tracking and lifecycle', 'APIs - Report extraction, conversations, tickets', 'Reports - Curated and custom', 'Standard real-time dashboard', 'Role-based access control', 'Single sign-on'],
-            },
-            {
-              name: 'Pro',
-              growth: 'For high performance',
-              package: 'Yearly',
-              discretion: '/agent/month, billed annually',
-              price: {
-                monthly: 66.46,
-                annually: 5499,
-              },
-              features: ['Everything in Growth, plus', 'Bring your own channel (BYOC)', 'Bring your own telephony (BYOT)', 'Multilingual knowledge base', 'Article versioning', 'Full portal customization', 'Community forums', 'Multilingual conversations', 'Ticket templates', 'Canned forms', 'Dynamic ticket fields (sections)', 'Advanced custom fields', 'User targeting', 'Multilingual CSAT', 'Business hours - Global, multiple, group specific', 'Assignment - Intelliassign, round robin, and load balanced', 'Multiple SLA policies', 'Parent-child ticketing', 'Dynamic email notifications', 'Multiple products', 'Collaborators', 'Custom objects', 'Custom real-time dashboards', 'Agent availability dashboard'],
-            },
-            {
-              name: 'Enterprise',
-              growth: 'For enterprise-grade support',
-              package: 'Yearly',
-              discretion: '/agent/month, billed annually',
-              price: {
-                monthly: 107.55,
-                annually: 8899,
-              },
-              features: ['Everything in Pro, plus:', 'Approval workflow', 'Flexible knowledge base hierarchy', 'Agent shifts', 'Out of office scheduler', 'Sandbox for ticketing', 'Audit logs', 'Skill based assignment', 'Custom object analytics', 'JWT authentication', 'Allowed domains', 'IP whitelisting', 'Enables HIPAA Compliance', 'PCI compliance'],
-            },
-          ],
-        }
-      }
-    </script>
+        <script>
+          const css = () => {
+            return {
+              isNavOpen: false,
+              billPlan: 'monthly',
+              plans: [
+                {
+                  name: 'Growth',
+                  growth: 'For fast growth',
+                  heading: 'Omnichannel',
+                  discretion: '/agent/month, billed annually',
+                  price: {
+                    monthly: 27.79,
+                    annually: 2299,
+                  },
+                  features: ['Web widget', 'Messaging channels', 'Email', 'Customer portal', 'Knowledge base', 'Chatbots', 'Unified agent inbox', 'Conversation switch', 'Proactive support journeys and campaigns', 'Agent collision detection', 'Custom agent status', 'Collaboration - Threads and tasks', 'Customizable contact, conversation and ticket properties', 'Customer 360 - Contact events tracking and lifecycle', 'APIs - Report extraction, conversations, tickets', 'Reports - Curated and custom', 'Standard real-time dashboard', 'Role-based access control', 'Single sign-on'],
+                },
+                {
+                  name: 'Pro',
+                  growth: 'For high performance',
+                  heading: 'Everything in Growth, plus:',
+                  discretion: '/agent/month, billed annually',
+                  price: {
+                    monthly: 66.46,
+                    annually: 5499,
+                  },
+                  features: [ 'Bring your own channel (BYOC)', 'Bring your own telephony (BYOT)', 'Multilingual knowledge base', 'Article versioning', 'Full portal customization', 'Community forums', 'Multilingual conversations', 'Ticket templates', 'Canned forms', 'Dynamic ticket fields (sections)', 'Advanced custom fields', 'User targeting', 'Multilingual CSAT', 'Business hours - Global, multiple, group specific', 'Assignment - Intelliassign, round robin, and load balanced', 'Multiple SLA policies', 'Parent-child ticketing', 'Dynamic email notifications', 'Multiple products', 'Collaborators', 'Custom objects', 'Custom real-time dashboards', 'Agent availability dashboard'],
+                },
+                {
+                  name: 'Enterprise',
+                  growth: 'For enterprise-grade support',
+                  heading: 'Everything in Pro, plus:',
+                  discretion: '/agent/month, billed annually',
+                  price: {
+                    monthly: 107.55,
+                    annually: 8899,
+                  },
+                  features: ['Approval workflow', 'Flexible knowledge base hierarchy', 'Agent shifts', 'Out of office scheduler', 'Sandbox for ticketing', 'Audit logs', 'Skill based assignment', 'Custom object analytics', 'JWT authentication', 'Allowed domains', 'IP whitelisting', 'Enables HIPAA Compliance', 'PCI compliance'],
+                },
+              ],
+            }
+          }
+        </script>
+          <!--end CS- Customer Service Suite -->
+      </div>
+       
+      <div
+         x-show="openTab === 2"
+         class="p-6 text-base leading-relaxed text-body-color  "
+         >
+         <!-- CS- Freshdesk -->
+1-2
+          <!-- END CS- Freshdesk -->
+      </div>
+      <div
+         x-show="openTab === 3"
+         class="p-6 text-base leading-relaxed text-body-color  "
+         >
+        <!-- CS- Freshchat -->
+         1-3
+          <!-- END CS- Freshchat -->
+      </div>
+      <div
+         x-show="openTab === 4"
+         class="p-6 text-base leading-relaxed text-body-color  "
+         >
+          <!-- CS- Freshcaller -->
+         1-4
+          <!-- END CS- Freshcaller -->
+      </div>
+   </div>
+</div>
+         
+      </div>
+      <div
+         x-show="openTab === 2"
+         class="p-6 text-base leading-relaxed text-body-color  "
+         >
+         Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+         Officia nisi, doloribus nulla cumque molestias corporis eaque
+         harum vero! Quas sit odit optio debitis nulla quisquam,
+         dolorum quaerat animi iusto quod. Lorem ipsum dolor, sit amet
+         consectetur adipisicing elit. Unde ex dolorum voluptate
+         cupiditate adipisci doloremque, vel quam praesentium nihil
+         veritatis.
+      </div>
+      <div
+         x-show="openTab === 3"
+         class="p-6 text-base leading-relaxed text-body-color  "
+         >
+         Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+         Officia nisi, doloribus nulla cumque molestias corporis eaque
+         harum vero! Quas sit odit optio debitis nulla quisquam,
+         dolorum quaerat animi iusto quod. <br />
+         <br />
+         Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+         Suscipit mollitia nam eligendi reprehenderit reiciendis saepe
+         laboriosam maiores voluptas. Quo, culpa amet fugiat ipsam sed
+         quod hic, veritatis ducimus recusandae repellat quasi eaque,
+         suscipit praesentium totam?
+      </div>
+     
+   </div>
+</div>
+    <!-- component -->
+ 
   </section>>
   <section>
     <div class=" ">
