@@ -159,7 +159,7 @@
    {
    openTab: 1,
    activeClasses: 'bg-white text-blue-500',
-   inactiveClasses: 'text-body-color     hover:bg-blue-500 hover:text-white',
+   inactiveClasses: 'text-white     hover:bg-blue-500 hover:text-white',
    }
    "
    class="w-full mb-14 "
@@ -259,15 +259,8 @@
         </style>
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
         <div class="container mx-auto antialiased text-gray-900 bg-white" x-data="css()">
-          <main class="mx-4 my-16">
-            <div class="text-center">
-              <h1 class="mb-4 text-2xl font-normal md:text-3xl lg:text-4xl">
-                Customer <span class="font-semibold">Service</span> Suite <span class="font-semibold">pricing</span>
-              </h1>
-              <p class="text-sm font-normal text-gray-400">
-                All-in-one, easy-to-use, omnichannel customer service solution—with an AI boost
-              </p>
-            </div>
+          <main class="mx-4 ">
+          
             <!-- Plan switch -->
             <div class="flex items-center justify-center mt-10 space-x-4">
               <span class="text-base font-medium">Monthly</span>
@@ -319,8 +312,8 @@
                   <!-- Button -->
                   <div class="flex-shrink-0 pt-4">
                     <button
-                      class="inline-flex items-center justify-center w-full max-w-xs px-4 py-2 transition-colors border rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                      :class="plan.name == 'Basic' ? 'bg-indigo-500 text-white hover:bg-indigo-700' : 'hover:bg-indigo-500 hover:text-white'"
+                      class="inline-flex items-center justify-center w-full max-w-xs px-4 py-2 transition-colors border rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                      :class="plan.name == 'Basic' ? '  bg-blue-700 text-white hover:bg-blue-700' : 'hover:bg-blue-500 hover:text-white bg-blue-700 text-white'"
                       x-text="`Get ${plan.name}`"></button>
                   </div>
                 </section>
@@ -340,8 +333,8 @@
                   heading: 'Omnichannel',
                   discretion: '/agent/month, billed annually',
                   price: {
-                    monthly: 27.79,
-                    annually: 2299,
+                    monthly: 33.83,
+                    annually: 27.79,
                   },
                   features: ['Web widget', 'Messaging channels', 'Email', 'Customer portal', 'Knowledge base', 'Chatbots', 'Unified agent inbox', 'Conversation switch', 'Proactive support journeys and campaigns', 'Agent collision detection', 'Custom agent status', 'Collaboration - Threads and tasks', 'Customizable contact, conversation and ticket properties', 'Customer 360 - Contact events tracking and lifecycle', 'APIs - Report extraction, conversations, tickets', 'Reports - Curated and custom', 'Standard real-time dashboard', 'Role-based access control', 'Single sign-on'],
                 },
@@ -351,8 +344,8 @@
                   heading: 'Everything in Growth, plus:',
                   discretion: '/agent/month, billed annually',
                   price: {
-                    monthly: 66.46,
-                    annually: 5499,
+                    monthly: 79.76,
+                    annually: 66.47,
                   },
                   features: [ 'Bring your own channel (BYOC)', 'Bring your own telephony (BYOT)', 'Multilingual knowledge base', 'Article versioning', 'Full portal customization', 'Community forums', 'Multilingual conversations', 'Ticket templates', 'Canned forms', 'Dynamic ticket fields (sections)', 'Advanced custom fields', 'User targeting', 'Multilingual CSAT', 'Business hours - Global, multiple, group specific', 'Assignment - Intelliassign, round robin, and load balanced', 'Multiple SLA policies', 'Parent-child ticketing', 'Dynamic email notifications', 'Multiple products', 'Collaborators', 'Custom objects', 'Custom real-time dashboards', 'Agent availability dashboard'],
                 },
@@ -362,8 +355,8 @@
                   heading: 'Everything in Pro, plus:',
                   discretion: '/agent/month, billed annually',
                   price: {
-                    monthly: 107.55,
-                    annually: 8899,
+                    monthly: 129.07,
+                    annually: 107.56,
                   },
                   features: ['Approval workflow', 'Flexible knowledge base hierarchy', 'Agent shifts', 'Out of office scheduler', 'Sandbox for ticketing', 'Audit logs', 'Skill based assignment', 'Custom object analytics', 'JWT authentication', 'Allowed domains', 'IP whitelisting', 'Enables HIPAA Compliance', 'PCI compliance'],
                 },
@@ -379,7 +372,113 @@
          class="p-6 text-base leading-relaxed text-body-color  "
          >
          <!-- CS- Freshdesk -->
-1-2
+         
+        <div class="container mx-auto antialiased text-gray-900 bg-white" x-data="fd()">
+          <main class="mx-4  ">
+           
+            <!-- Plan switch -->
+            <div class="flex items-center justify-center mt-10 space-x-4">
+              <span class="text-base font-medium">Monthly</span>
+              <button class="relative rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                x-cloak @click="billPlan == 'monthly' ? billPlan = 'annually' : billPlan = 'monthly'">
+                <div class="w-16 h-8 transition bg-blue-500 rounded-full shadow-md outline-none"></div>
+                <div
+                  class="absolute inline-flex items-center justify-center w-6 h-6 transition-all duration-200 ease-in-out transform bg-white rounded-full shadow-sm top-1 left-1"
+                  :class="{ 'translate-x-0': billPlan == 'monthly', 'translate-x-8': billPlan == 'annually' }"></div>
+              </button>
+              <span class="text-base font-medium">Annualy</span>
+            </div>
+            <!-- Plans -->
+            <div
+              class="flex flex-col items-center justify-center mt-16 space-y-8 lg:flex-row lg:items-stretch lg:space-x-8 lg:space-y-0">
+              <template x-for="(plan, i) in plans" x-key="i">
+                <section class="flex flex-col w-full max-w-sm p-12 space-y-6 bg-white rounded-lg shadow-md">
+                  <!-- Price -->
+                  <div class="flex-shrink-0 text-center">
+                    <span class="text-4xl font-medium tracking-tight text-center"
+                      :class="plan.name == 'Basic' ? 'text-blue-500' : ''"
+                      x-text="`$${billPlan == 'monthly' ? plan.price.monthly : plan.price.annually}`"></span>
+                    <span class="text-gray-400 text-center" x-text="billPlan == 'monthly' ? '/monthly' : '/annually'"></span>
+                  </div>
+                  <!--  -->
+                  <div class="flex-shrink-0 pb-6 space-y-2 border-b text-center">
+                   
+                    <h2 class="text-2xl font-bold text-center" x-text="plan.name"></h2>
+                    <p class="text-sm text-gray-600 text-center" x-text="plan.growth"></p>
+                    <p class="text-sm text-gray-400 text-center" x-text="plan.discretion"></p>
+                 
+                  </div>
+                  <!-- Features -->
+                  <ul class="flex-1 space-y-4">
+                    <p class="text-sm text-gray-600 text-center font-semibold" x-text="plan.heading"></p>
+                    <template x-for="(feature, i) in plan.features" x-key="i">
+                      
+                      <li class="flex items-start">
+                        <svg class="min-w-6 h-6 text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clip-rule="evenodd" />
+                        </svg>
+                        <span class="ml-3 text-base font-medium" x-text="feature"></span>
+                      </li>
+                    </template>
+                  </ul>
+                  <!-- Button -->
+                  <div class="flex-shrink-0 pt-4">
+                    <button
+                      class="inline-flex items-center justify-center w-full max-w-xs px-4 py-2 transition-colors border rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                      :class="plan.name == 'Basic' ? '  bg-blue-700 text-white hover:bg-blue-700' : 'hover:bg-blue-500 hover:text-white bg-blue-700 text-white'"
+                      x-text="`Get ${plan.name}`"></button>
+                  </div>
+                </section>
+              </template>
+            </div>
+          </main>
+        </div>
+        <script>
+          const fd = () => {
+            return {
+              isNavOpen: false,
+              billPlan: 'monthly',
+              plans: [
+                {
+                  name: 'Growth',
+                  growth: 'Intuitive, industry-leading support for growing businesses',
+                  heading: 'Everything in Free and...',
+                  discretion: '/agent/month, billed annually',
+                  price: {
+                    monthly: 14.49,
+                    annually: 12.07,
+                  },
+                  features: ['Automation', 'Collision Detection', '1000+ marketplace apps', 'In-depth helpdesk report', 'SLA management & business hours', 'Custom Email Server', 'Custom Ticket Views', 'Custom ticket fields & status', 'Custom SSL', 'Easily track time spent by agents on tickets', '24x5 phone support' ],
+                },
+                {
+                  name: 'Pro',
+                  growth: 'Advanced automation for high performance',
+                  heading: 'Everything in Growth and...',
+                  discretion: '/agent/month, billed annually',
+                  price: {
+                    monthly: 51.96,
+                    annually: 43.50,
+                  },
+                  features: [ 'Multiple products', 'Includes up to 5000 Collaborators', 'Round-robin routing', 'Custom Roles', 'Custom objects', 'Custom Reports and Dashboards', 'Segment customers for personalized support', 'Customer journey', 'Canned forms', 'Manage versions in knowledge base', 'Community forums', 'Extendable API Limits', 'CSAT surveys & reports', 'Multiple SLA policies & business hours', 'SLA reminder & escalation', 'Multilingual knowledge base', 'Custom apps', 'Average handling Time (AHT)', 'Custom Metrics', 'Report Sharing' ],
+                },
+                {
+                  name: 'Enterprise',
+                  growth: 'Fully featured with bots for enterprise-level support',
+                  heading: 'Everything in Pro and...',
+                  discretion: '/agent/month, billed annually',
+                  price: {
+                    monthly: 83.39,
+                    annually: 68.88,
+                  },
+                  features: ['Unlimited products', 'Sandbox', 'Easily manage agent shifts across time zones', 'Audit log', 'Skill-based routing', 'Knowledge base approval workflow', 'Flexible knowledge base hierarchy', 'IP range restriction' ],
+                },
+              ],
+            }
+          }
+        </script>
           <!-- END CS- Freshdesk -->
       </div>
       <div
@@ -387,7 +486,113 @@
          class="p-6 text-base leading-relaxed text-body-color  "
          >
         <!-- CS- Freshchat -->
-         1-3
+         
+        <div class="container mx-auto antialiased text-gray-900 bg-white" x-data="fc()">
+          <main class="mx-4  ">
+           
+            <!-- Plan switch -->
+            <div class="flex items-center justify-center mt-10 space-x-4">
+              <span class="text-base font-medium">Monthly</span>
+              <button class="relative rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                x-cloak @click="billPlan == 'monthly' ? billPlan = 'annually' : billPlan = 'monthly'">
+                <div class="w-16 h-8 transition bg-blue-500 rounded-full shadow-md outline-none"></div>
+                <div
+                  class="absolute inline-flex items-center justify-center w-6 h-6 transition-all duration-200 ease-in-out transform bg-white rounded-full shadow-sm top-1 left-1"
+                  :class="{ 'translate-x-0': billPlan == 'monthly', 'translate-x-8': billPlan == 'annually' }"></div>
+              </button>
+              <span class="text-base font-medium">Annualy</span>
+            </div>
+            <!-- Plans -->
+            <div
+              class="flex flex-col items-center justify-center mt-16 space-y-8 lg:flex-row lg:items-stretch lg:space-x-8 lg:space-y-0">
+              <template x-for="(plan, i) in plans" x-key="i">
+                <section class="flex flex-col w-full max-w-sm p-12 space-y-6 bg-white rounded-lg shadow-md">
+                  <!-- Price -->
+                  <div class="flex-shrink-0 text-center">
+                    <span class="text-4xl font-medium tracking-tight text-center"
+                      :class="plan.name == 'Basic' ? 'text-blue-500' : ''"
+                      x-text="`$${billPlan == 'monthly' ? plan.price.monthly : plan.price.annually}`"></span>
+                    <span class="text-gray-400 text-center" x-text="billPlan == 'monthly' ? '/monthly' : '/annually'"></span>
+                  </div>
+                  <!--  -->
+                  <div class="flex-shrink-0 pb-6 space-y-2 border-b text-center">
+                   
+                    <h2 class="text-2xl font-bold text-center" x-text="plan.name"></h2>
+                    <p class="text-sm text-gray-600 text-center" x-text="plan.growth"></p>
+                    <p class="text-sm text-gray-400 text-center" x-text="plan.discretion"></p>
+                 
+                  </div>
+                  <!-- Features -->
+                  <ul class="flex-1 space-y-4">
+                    <p class="text-sm text-gray-600 text-center font-semibold" x-text="plan.heading"></p>
+                    <template x-for="(feature, i) in plan.features" x-key="i">
+                      
+                      <li class="flex items-start">
+                        <svg class="min-w-6 h-6 text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clip-rule="evenodd" />
+                        </svg>
+                        <span class="ml-3 text-base font-medium" x-text="feature"></span>
+                      </li>
+                    </template>
+                  </ul>
+                  <!-- Button -->
+                  <div class="flex-shrink-0 pt-4">
+                    <button
+                      class="inline-flex items-center justify-center w-full max-w-xs px-4 py-2 transition-colors border rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                      :class="plan.name == 'Basic' ? '  bg-blue-700 text-white hover:bg-blue-700' : 'hover:bg-blue-500 hover:text-white bg-blue-700 text-white'"
+                      x-text="`Get ${plan.name}`"></button>
+                  </div>
+                </section>
+              </template>
+            </div>
+          </main>
+        </div>
+        <script>
+          const fc = () => {
+            return {
+              isNavOpen: false,
+              billPlan: 'monthly',
+              plans: [
+                {
+                  name: 'Growth',
+                  growth: 'For fast growth',
+                  heading: 'Everything in Free and...',
+                  discretion: '/agent/month, billed annually',
+                  price: {
+                    monthly: 21.74,
+                    annually: 18.12,
+                  },
+                  features: ['Assignment Rules', 'Priority Inbox', 'Canned Responses', 'Private Notes', 'User Events & Timeline', 'User Segmentation', 'Business Hours (Global)', 'Offline experience', 'Basic Dashboard', 'FAQs', 'Conversations Overview Report', 'Facebook Messenger', 'Files', 'Marketplace (App Store)', 'SMS', 'WhatsApp Business', 'Freshdesk integration', 'Instagram DM', 'LINE', 'Google Business Messages', 'Task management', 'Telephony in Freshchat' ],
+                },
+                {
+                  name: 'Pro',
+                  growth: 'For high performance',
+                  heading: 'Everything in Growth and...',
+                  discretion: '/agent/month, billed annually',
+                  price: {
+                    monthly: 58.00,
+                    annually: 48.34,
+                  },
+                  features: [ 'Auto-resolve', 'IntelliAssign', 'Business Hours (by Groups)', 'Live Translate', 'Advanced Dashboard', 'Team Performance Report', 'Agent Availability Report', 'Roles and Permissions', 'CSAT Survey and Report', 'Conversation APIs', 'Advanced Automations'],
+                },
+                {
+                  name: 'Enterprise',
+                  growth: 'For enterprise-grade support',
+                  heading: 'Everything in Pro and...',
+                  discretion: '/agent/month, billed annually',
+                  price: {
+                    monthly: 93.06,
+                    annually: 77.34,
+                  },
+                  features: ['Allowed Domains', 'User Authentication(JWT)', 'Skill based routing' ],
+                },
+              ],
+            }
+          }
+        </script>
           <!-- END CS- Freshchat -->
       </div>
       <div
@@ -395,7 +600,113 @@
          class="p-6 text-base leading-relaxed text-body-color  "
          >
           <!-- CS- Freshcaller -->
-         1-4
+        
+          <div class="container mx-auto antialiased text-gray-900 bg-white" x-data="fcall()">
+            <main class="mx-4  ">
+             
+              <!-- Plan switch -->
+              <div class="flex items-center justify-center mt-10 space-x-4">
+                <span class="text-base font-medium">Monthly</span>
+                <button class="relative rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                  x-cloak @click="billPlan == 'monthly' ? billPlan = 'annually' : billPlan = 'monthly'">
+                  <div class="w-16 h-8 transition bg-blue-500 rounded-full shadow-md outline-none"></div>
+                  <div
+                    class="absolute inline-flex items-center justify-center w-6 h-6 transition-all duration-200 ease-in-out transform bg-white rounded-full shadow-sm top-1 left-1"
+                    :class="{ 'translate-x-0': billPlan == 'monthly', 'translate-x-8': billPlan == 'annually' }"></div>
+                </button>
+                <span class="text-base font-medium">Annualy</span>
+              </div>
+              <!-- Plans -->
+              <div
+                class="flex flex-col items-center justify-center mt-16 space-y-8 lg:flex-row lg:items-stretch lg:space-x-8 lg:space-y-0">
+                <template x-for="(plan, i) in plans" x-key="i">
+                  <section class="flex flex-col w-full max-w-sm p-12 space-y-6 bg-white rounded-lg shadow-md">
+                    <!-- Price -->
+                    <div class="flex-shrink-0 text-center">
+                      <span class="text-4xl font-medium tracking-tight text-center"
+                        :class="plan.name == 'Basic' ? 'text-blue-500' : ''"
+                        x-text="`$${billPlan == 'monthly' ? plan.price.monthly : plan.price.annually}`"></span>
+                      <span class="text-gray-400 text-center" x-text="billPlan == 'monthly' ? '/monthly' : '/annually'"></span>
+                    </div>
+                    <!--  -->
+                    <div class="flex-shrink-0 pb-6 space-y-2 border-b text-center">
+                     
+                      <h2 class="text-2xl font-bold text-center" x-text="plan.name"></h2>
+                      <p class="text-sm text-gray-600 text-center" x-text="plan.growth"></p>
+                      <p class="text-sm text-gray-400 text-center" x-text="plan.discretion"></p>
+                   
+                    </div>
+                    <!-- Features -->
+                    <ul class="flex-1 space-y-4">
+                      <p class="text-sm text-gray-600 text-center font-semibold" x-text="plan.heading"></p>
+                      <template x-for="(feature, i) in plan.features" x-key="i">
+                        
+                        <li class="flex items-start">
+                          <svg class="min-w-6 h-6 text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                              clip-rule="evenodd" />
+                          </svg>
+                          <span class="ml-3 text-base font-medium" x-text="feature"></span>
+                        </li>
+                      </template>
+                    </ul>
+                    <!-- Button -->
+                    <div class="flex-shrink-0 pt-4">
+                      <button
+                        class="inline-flex items-center justify-center w-full max-w-xs px-4 py-2 transition-colors border rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                        :class="plan.name == 'Basic' ? '  bg-blue-700 text-white hover:bg-blue-700' : 'hover:bg-blue-500 hover:text-white bg-blue-700 text-white'"
+                        x-text="`Get ${plan.name}`"></button>
+                    </div>
+                  </section>
+                </template>
+              </div>
+            </main>
+          </div>
+          <script>
+            const fcall = () => {
+              return {
+                isNavOpen: false,
+                billPlan: 'monthly',
+                plans: [
+                  {
+                    name: 'Growth',
+                    growth: 'For fast growth',
+                    heading: 'Everything in Free and...',
+                    discretion: '/agent/month, billed annually',
+                    price: {
+                      monthly: 14.49,
+                      annually: 12.07,
+                    },
+                    features: ['Up to 2000 incoming minutes/month FREE', 'Number Porting' , 'Basic Call Queues' , 'Wait Queues' , 'Voicemail' , 'Warm Transfer' , 'Cold Transfer' , 'Call Recording' , 'Pre-built Reports' , 'Parallel Calling' , 'Queue Transfer' ],
+                  },
+                  {
+                    name: 'Pro',
+                    growth: 'For high performance',
+                    heading: 'Everything in Growth and...',
+                    discretion: '/agent/month, billed annually',
+                    price: {
+                      monthly: 41.08,
+                      annually: 33.83,
+                    },
+                    features: [ 'Up to 3000 incoming minutes/month FREE', 'Holiday Routing', 'Advanced Call Metrics', 'Call Barging', 'Call Center Agent Statuses', 'Call Recording Opt-out', 'Agent Availability Report', 'Queue Callback (Virtual Hold)', 'Routing Automation', 'Call Lifecycle', 'Call Monitoring', 'Pause Recordings', 'IVR (Phone Trees)', 'Custom Reports', 'Call Conferencing', 'Bring Your Own Carrier', 'SIP Connections', 'Agent Extensions', 'Smart Escalations'],
+                  },
+                  {
+                    name: 'Enterprise',
+                    growth: 'For enterprise-grade support',
+                    heading: 'Everything in Pro and...',
+                    discretion: '/agent/month, billed annually',
+                    price: {
+                      monthly: 72.51,
+                      annually: 60.42,
+                    },
+                    features: ['Up to 5000 incoming minutes/month FREE', 'Speech Enabled IVR (Phone Trees) FREDDY', 'Abandoned Call Metrics', 'Service Level Monitoring' ],
+                  },
+                ],
+              }
+            }
+          </script>
           <!-- END CS- Freshcaller -->
       </div>
    </div>
@@ -406,28 +717,505 @@
          x-show="openTab === 2"
          class="p-6 text-base leading-relaxed text-body-color  "
          >
-         Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-         Officia nisi, doloribus nulla cumque molestias corporis eaque
-         harum vero! Quas sit odit optio debitis nulla quisquam,
-         dolorum quaerat animi iusto quod. Lorem ipsum dolor, sit amet
-         consectetur adipisicing elit. Unde ex dolorum voluptate
-         cupiditate adipisci doloremque, vel quam praesentium nihil
-         veritatis.
+         <div class="container mx-auto antialiased text-gray-900 bg-white" x-data="its()">
+          <main class="mx-4  ">
+           
+            <!-- Plan switch -->
+            <div class="flex items-center justify-center mt-10 space-x-4">
+              <span class="text-base font-medium">Monthly</span>
+              <button class="relative rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                x-cloak @click="billPlan == 'monthly' ? billPlan = 'annually' : billPlan = 'monthly'">
+                <div class="w-16 h-8 transition bg-blue-500 rounded-full shadow-md outline-none"></div>
+                <div
+                  class="absolute inline-flex items-center justify-center w-6 h-6 transition-all duration-200 ease-in-out transform bg-white rounded-full shadow-sm top-1 left-1"
+                  :class="{ 'translate-x-0': billPlan == 'monthly', 'translate-x-8': billPlan == 'annually' }"></div>
+              </button>
+              <span class="text-base font-medium">Annualy</span>
+            </div>
+            <!-- Plans -->
+            <div
+              class="flex flex-col items-center justify-center mt-16 space-y-8 lg:flex-row lg:items-stretch lg:space-x-8 lg:space-y-0">
+              <template x-for="(plan, i) in plans" x-key="i">
+                <section class="flex flex-col w-full max-w-sm p-12 space-y-6 bg-white rounded-lg shadow-md">
+                  <!-- Price -->
+                  <div class="flex-shrink-0 text-center">
+                    <span class="text-4xl font-medium tracking-tight text-center"
+                      :class="plan.name == 'Basic' ? 'text-blue-500' : ''"
+                      x-text="`$${billPlan == 'monthly' ? plan.price.monthly : plan.price.annually}`"></span>
+                    <span class="text-gray-400 text-center" x-text="billPlan == 'monthly' ? '/monthly' : '/annually'"></span>
+                  </div>
+                  <!--  -->
+                  <div class="flex-shrink-0 pb-6 space-y-2 border-b text-center">
+                   
+                    <h2 class="text-2xl font-bold text-center" x-text="plan.name"></h2>
+                    <p class="text-sm text-gray-600 text-center" x-text="plan.growth"></p>
+                    <p class="text-sm text-gray-400 text-center" x-text="plan.discretion"></p>
+                 
+                  </div>
+                  <!-- Features -->
+                  <ul class="flex-1 space-y-4">
+                    <p class="text-sm text-gray-600 text-center font-semibold" x-text="plan.heading"></p>
+                    <template x-for="(feature, i) in plan.features" x-key="i">
+                      
+                      <li class="flex items-start">
+                        <svg class="min-w-6 h-6 text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clip-rule="evenodd" />
+                        </svg>
+                        <span class="ml-3 text-base font-medium" x-text="feature"></span>
+                      </li>
+                    </template>
+                  </ul>
+                  <!-- Button -->
+                  <div class="flex-shrink-0 pt-4">
+                    <button
+                      class="inline-flex items-center justify-center w-full max-w-xs px-4 py-2 transition-colors border rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                      :class="plan.name == 'Basic' ? '  bg-blue-700 text-white hover:bg-blue-700' : 'hover:bg-blue-500 hover:text-white bg-blue-700 text-white'"
+                      x-text="`Get ${plan.name}`"></button>
+                  </div>
+                </section>
+              </template>
+            </div>
+          </main>
+        </div>
+        <script>
+          const its = () => {
+            return {
+              isNavOpen: false,
+              billPlan: 'monthly',
+              plans: [
+                {
+                  name: 'Growth',
+                  growth: 'For growing businesses across their LOBs',
+                  heading: 'Everything in Starter and...',
+                  discretion: '/agent/month, billed annually',
+                  price: {
+                    monthly: 51.96,
+                    annually: 43.50,
+                  },
+                  features: ['Service Catalog', 'Asset Management - Includes 100 managed assets', 'Purchase Order Management', 'Employee Onboarding', 'On-call Management', 'Portal Customization', 'MSP Mode', 'Multiple SLAs', 'Business Rules', 'Approval Workflows', 'Business Hours', 'Cloud Management', '2000 Orchestration transactions/mo/account' ],
+                },
+                {
+                  name: 'Pro',
+                  growth: 'ITSM + ITOM + Project Management for large organizations',
+                  heading: 'Everything in Growth and...',
+                  discretion: '/agent/month, billed annually',
+                  price: {
+                    monthly: 103.93,
+                    annually: 84.60,
+                  },
+                  features: [ 'Problem Management','Change Management','Release Management','Project Management','Software License Management','Contract Management','Major Incident Management','Status Page','Alert Management','Service Health Monitoring','Analytics Pro','Team Dashboards','IP Range Restrictions','5000 Orchestration transactions/mo/account','Workload Management','Custom Objects'],
+                },
+                {
+                  name: 'Enterprise',
+                  growth: 'Service management solution for enterprises',
+                  heading: 'Everything in Pro and...',
+                  discretion: '/agent/month, billed annually',
+                  price: {
+                    monthly: 130.53,
+                    annually: 106.35,
+                  },
+                  features: ['Sandbox', 'Audit Logs', '20,000 Orchestration transactions/mo/account', 'ServiceBot With Virtual Agent on Microsoft Teams and Slack' ],
+                },
+              ],
+            }
+          }
+        </script>
       </div>
       <div
          x-show="openTab === 3"
          class="p-6 text-base leading-relaxed text-body-color  "
          >
-         Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-         Officia nisi, doloribus nulla cumque molestias corporis eaque
-         harum vero! Quas sit odit optio debitis nulla quisquam,
-         dolorum quaerat animi iusto quod. <br />
-         <br />
-         Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-         Suscipit mollitia nam eligendi reprehenderit reiciendis saepe
-         laboriosam maiores voluptas. Quo, culpa amet fugiat ipsam sed
-         quod hic, veritatis ducimus recusandae repellat quasi eaque,
-         suscipit praesentium totam?
+         <div
+         x-data="
+         {
+         openTab: 1,
+         activeClasses: 'bg-blue-500 text-white',
+         inactiveClasses: 'text-body-color     hover:bg-blue-500 hover:text-white',
+         }
+         "
+         class="w-full mb-14"
+         >
+         <div
+            class="flex flex-col flex-wrap rounded-lg border justify-center  border-[#E4E4E4] py-3 px-4 sm:flex-row"
+            >
+            <a
+               href="javascript:void(0)"
+               @click="openTab = 1"
+               :class="openTab === 1 ? activeClasses : inactiveClasses"
+               class="px-4 py-3 text-sm font-medium rounded-md md:text-base lg:px-6"
+               >
+               Freshsales      
+            </a>
+            <a
+               href="javascript:void(0)"
+               @click="openTab = 2"
+               :class="openTab === 2 ? activeClasses : inactiveClasses"
+               class="px-4 py-3 text-sm font-medium rounded-md md:text-base lg:px-6"
+               >
+               Freshsales Suite
+            </a>
+            <a
+               href="javascript:void(0)"
+               @click="openTab = 3"
+               :class="openTab === 3 ? activeClasses : inactiveClasses"
+               class="px-4 py-3 text-sm font-medium rounded-md md:text-base lg:px-6"
+               >
+               Freshmarketer
+      
+            </a>
+           
+         </div>
+         <div>
+            <div
+               x-show="openTab === 1"
+               class="p-6 text-base leading-relaxed text-body-color  "
+               >
+               <!-- fresh sales -->
+              
+              
+              <div class="container mx-auto antialiased text-gray-900 bg-white" x-data="fsale()">
+                <main class="mx-4 my-6">
+                
+                  <!-- Plan switch -->
+                  <div class="flex items-center justify-center  space-x-4">
+                    <span class="text-base font-medium">Monthly</span>
+                    <button class="relative rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                      x-cloak @click="billPlan == 'monthly' ? billPlan = 'annually' : billPlan = 'monthly'">
+                      <div class="w-16 h-8 transition bg-blue-500 rounded-full shadow-md outline-none"></div>
+                      <div
+                        class="absolute inline-flex items-center justify-center w-6 h-6 transition-all duration-200 ease-in-out transform bg-white rounded-full shadow-sm top-1 left-1"
+                        :class="{ 'translate-x-0': billPlan == 'monthly', 'translate-x-8': billPlan == 'annually' }"></div>
+                    </button>
+                    <span class="text-base font-medium">Annualy</span>
+                  </div>
+                  <!-- Plans -->
+                  <div
+                    class="flex flex-col items-center justify-center mt-16 space-y-8 lg:flex-row lg:items-stretch lg:space-x-8 lg:space-y-0">
+                    <template x-for="(plan, i) in plans" x-key="i">
+                      <section class="flex flex-col w-full max-w-sm p-12 space-y-6 bg-white rounded-lg shadow-md">
+                        <!-- Price -->
+                        <div class="flex-shrink-0 text-center">
+                          <span class="text-4xl font-medium tracking-tight text-center"
+                            :class="plan.name == 'Basic' ? 'text-blue-500' : ''"
+                            x-text="`$${billPlan == 'monthly' ? plan.price.monthly : plan.price.annually}`"></span>
+                          <span class="text-gray-400 text-center" x-text="billPlan == 'monthly' ? '/monthly' : '/annually'"></span>
+                        </div>
+                        <!--  -->
+                        <div class="flex-shrink-0 pb-6 space-y-2 border-b text-center">
+                         
+                          <h2 class="text-2xl font-bold text-center" x-text="plan.name"></h2>
+                          <p class="text-sm text-gray-600 text-center" x-text="plan.growth"></p>
+                          <p class="text-sm text-gray-400 text-center" x-text="plan.discretion"></p>
+                       
+                        </div>
+                        <!-- Features -->
+                        <ul class="flex-1 space-y-4">
+                          <p class="text-sm text-gray-600 text-center font-semibold" x-text="plan.heading"></p>
+                          <template x-for="(feature, i) in plan.features" x-key="i">
+                            
+                            <li class="flex items-start">
+                              <svg class="min-w-6 h-6 text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                  clip-rule="evenodd" />
+                              </svg>
+                              <span class="ml-3 text-base font-medium" x-text="feature"></span>
+                            </li>
+                          </template>
+                        </ul>
+                        <!-- Button -->
+                        <div class="flex-shrink-0 pt-4">
+                          <button
+                            class="inline-flex items-center justify-center w-full max-w-xs px-4 py-2 transition-colors border rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                            :class="plan.name == 'Basic' ? '  bg-blue-700 text-white hover:bg-blue-700' : 'hover:bg-blue-500 hover:text-white bg-blue-700 text-white'"
+                            x-text="`Get ${plan.name}`"></button>
+                        </div>
+                      </section>
+                    </template>
+                  </div>
+                </main>
+              </div>
+              <script>
+                const fsale = () => {
+                  return {
+                    isNavOpen: false,
+                    billPlan: 'monthly',
+                    plans: [
+                      {
+                        name: 'Growth',
+                        growth: 'Tailored for startups and SMBs seeking efficient pipeline management and engagement across channels',
+                        heading: 'Everything in Free, plus',
+                        discretion: '/agent/month, billed annually',
+                        price: {
+                          monthly: 10.87,
+                          annually: 9.05,
+                        },
+                        features: ['Kanban View for Contacts, Accounts, and Deals', 'Contact Lifecycle Stages', 'Built-in Chat, Email, & Phone', 'Email Templates', 'Custom Fields', 'Basic Workflows', 'Contextual Collaboration with Slack', 'Product Catalog', 'Curated Reports', 'Freshworks Marketplace', '1 CPQ license', 'Mobile App', '24x5 Support'],
+                      },
+                      {
+                        name: 'Pro',
+                        growth: 'Ideal for growing & mid-sized businesses requiring advanced capabilities and AI assistance',
+                        heading: 'Everything in Growth, plus:',
+                        discretion: '/agent/month, billed annually',
+                        price: {
+                          monthly: 47.01,
+                          annually: 39.15,
+                        },
+                        features: [ 'Contact Scoring by Freddy AI', 'Custom Sales Activities', 'Advanced custom fields', 'Auto-assignment Rules', 'Territory Management', 'Sales Sequences', 'Sales Emails by Freddy AI', 'Rephrase, Expand, and Enhance text by Freddy AI', 'Bring Your Own Carrier (B.Y.O.C)', 'Multiple Sales Pipelines', 'Account Hierarchy', 'Deal Insights by Freddy AI', 'Advanced Workflows', 'Custom Reports'],
+                      },
+                      {
+                        name: 'Enterprise',
+                        growth: 'Designed for mid to large-sized businesses needing advanced customization and governance capabilities',
+                        heading: 'Everything in Pro, plus:',
+                        discretion: '/agent/month, billed annually',
+                        price: {
+                          monthly: 71.06,
+                          annually: 59.21,
+                        },
+                        features: ['Field-level Permissions', 'Custom Modules', 'Forecasting Insights by Freddy AI', 'Workflows for Custom Modules', 'Sandbox', 'Audit Logs', 'Dedicated Account Manager'],
+                      },
+                    ],
+                  }
+                }
+              </script>
+                <!--end  fresh sale -->
+            </div>
+             
+            <div
+               x-show="openTab === 2"
+               class="p-6 text-base leading-relaxed text-body-color  "
+               >
+               <!-- CS- fresh sale suite -->
+               
+              <div class="container mx-auto antialiased text-gray-900 bg-white" x-data="fss()">
+                <main class="mx-4  ">
+                 
+                  <!-- Plan switch -->
+                  <div class="flex items-center justify-center mt-10 space-x-4">
+                    <span class="text-base font-medium">Monthly</span>
+                    <button class="relative rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                      x-cloak @click="billPlan == 'monthly' ? billPlan = 'annually' : billPlan = 'monthly'">
+                      <div class="w-16 h-8 transition bg-blue-500 rounded-full shadow-md outline-none"></div>
+                      <div
+                        class="absolute inline-flex items-center justify-center w-6 h-6 transition-all duration-200 ease-in-out transform bg-white rounded-full shadow-sm top-1 left-1"
+                        :class="{ 'translate-x-0': billPlan == 'monthly', 'translate-x-8': billPlan == 'annually' }"></div>
+                    </button>
+                    <span class="text-base font-medium">Annualy</span>
+                  </div>
+                  <!-- Plans -->
+                  <div
+                    class="flex flex-col items-center justify-center mt-16 space-y-8 lg:flex-row lg:items-stretch lg:space-x-8 lg:space-y-0">
+                    <template x-for="(plan, i) in plans" x-key="i">
+                      <section class="flex flex-col w-full max-w-sm p-12 space-y-6 bg-white rounded-lg shadow-md">
+                        <!-- Price -->
+                        <div class="flex-shrink-0 text-center">
+                          <span class="text-4xl font-medium tracking-tight text-center"
+                            :class="plan.name == 'Basic' ? 'text-blue-500' : ''"
+                            x-text="`$${billPlan == 'monthly' ? plan.price.monthly : plan.price.annually}`"></span>
+                          <span class="text-gray-400 text-center" x-text="billPlan == 'monthly' ? '/monthly' : '/annually'"></span>
+                        </div>
+                        <!--  -->
+                        <div class="flex-shrink-0 pb-6 space-y-2 border-b text-center">
+                         
+                          <h2 class="text-2xl font-bold text-center" x-text="plan.name"></h2>
+                          <p class="text-sm text-gray-600 text-center" x-text="plan.growth"></p>
+                          <p class="text-sm text-gray-400 text-center" x-text="plan.discretion"></p>
+                       
+                        </div>
+                        <!-- Features -->
+                        <ul class="flex-1 space-y-4">
+                          <p class="text-sm text-gray-600 text-center font-semibold" x-text="plan.heading"></p>
+                          <template x-for="(feature, i) in plan.features" x-key="i">
+                            
+                            <li class="flex items-start">
+                              <svg class="min-w-6 h-6 text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                  clip-rule="evenodd" />
+                              </svg>
+                              <span class="ml-3 text-base font-medium" x-text="feature"></span>
+                            </li>
+                          </template>
+                        </ul>
+                        <!-- Button -->
+                        <div class="flex-shrink-0 pt-4">
+                          <button
+                            class="inline-flex items-center justify-center w-full max-w-xs px-4 py-2 transition-colors border rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                            :class="plan.name == 'Basic' ? '  bg-blue-700 text-white hover:bg-blue-700' : 'hover:bg-blue-500 hover:text-white bg-blue-700 text-white'"
+                            x-text="`Get ${plan.name}`"></button>
+                        </div>
+                      </section>
+                    </template>
+                  </div>
+                </main>
+              </div>
+              <script>
+                const fss = () => {
+                  return {
+                    isNavOpen: false,
+                    billPlan: 'monthly',
+                    plans: [
+                      {
+                        name: 'Growth',
+                        growth: 'Tailored for startups and SMBs seeking efficient pipeline management and engagement across channels',
+                        heading: 'Everything in Free and...',
+                        discretion: '/agent/month, billed annually',
+                        price: {
+                          monthly: 10.87,
+                          annually: 9.05,
+                        },
+                        features: ['Web Forms', 'Multichannel engagement-Email, SMS & WhatsApp', 'Basic Workflows', 'Contextual Collaboration with Slack', 'Product Catalog', 'Curated Reports', 'Freshworks Marketplace', '1 CPQ license' ],
+                      },
+                      {
+                        name: 'Pro',
+                        growth: 'Ideal for growing & mid-sized businesses requiring advanced capabilities and AI assistance',
+                        heading: 'Everything in Growth and...',
+                        discretion: '/agent/month, billed annually',
+                        price: {
+                          monthly: 47.01,
+                          annually: 39.15,
+                        },
+                        features: [ 'Contact Scoring by Freddy AI', 'Custom Sales Activities', 'Auto-assignment Rules', 'Sales Sequences', 'Account Hierarchy', 'Multiple Sales Pipelines', 'Sales Emails by Freddy AI', 'Deal Insights by Freddy AI', 'Advanced Workflows', 'Custom Reports', 'Advanced Webhooks', 'Offline Events'  ],
+                      },
+                      {
+                        name: 'Enterprise',
+                        growth: 'Designed for mid to large-sized businesses needing advanced customization and governance capabilities',
+                        heading: 'Everything in Pro and...',
+                        discretion: '/agent/month, billed annually',
+                        price: {
+                          monthly: 71.06,
+                          annually: 59.21,
+                        },
+                        features: ['Field-level Permissions', 'Custom Modules', 'Forecasting Insights by Freddy AI', 'Workflows for Custom Modules', 'Transactional Emails', 'Sandbox', 'Audit Logs', 'Dedicated Account Manager' ],
+                      },
+                    ],
+                  }
+                }
+              </script>
+                <!-- END crm- freshsale suite -->
+            </div>
+            <div
+               x-show="openTab === 3"
+               class="p-6 text-base leading-relaxed text-body-color  "
+               >
+              <!-- Crm- Freshmarketer -->
+               
+              <div class="container mx-auto antialiased text-gray-900 bg-white" x-data="fm()">
+                <main class="mx-4  ">
+                 
+                  <!-- Plan switch -->
+                  <div class="flex items-center justify-center mt-10 space-x-4">
+                    <span class="text-base font-medium">Monthly</span>
+                    <button class="relative rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                      x-cloak @click="billPlan == 'monthly' ? billPlan = 'annually' : billPlan = 'monthly'">
+                      <div class="w-16 h-8 transition bg-blue-500 rounded-full shadow-md outline-none"></div>
+                      <div
+                        class="absolute inline-flex items-center justify-center w-6 h-6 transition-all duration-200 ease-in-out transform bg-white rounded-full shadow-sm top-1 left-1"
+                        :class="{ 'translate-x-0': billPlan == 'monthly', 'translate-x-8': billPlan == 'annually' }"></div>
+                    </button>
+                    <span class="text-base font-medium">Annualy</span>
+                  </div>
+                  <!-- Plans -->
+                  <div
+                    class="flex flex-col items-center justify-center mt-16 space-y-8 lg:flex-row lg:items-stretch lg:space-x-8 lg:space-y-0">
+                    <template x-for="(plan, i) in plans" x-key="i">
+                      <section class="flex flex-col w-full max-w-sm p-12 space-y-6 bg-white rounded-lg shadow-md">
+                        <!-- Price -->
+                        <div class="flex-shrink-0 text-center">
+                          <span class="text-4xl font-medium tracking-tight text-center"
+                            :class="plan.name == 'Basic' ? 'text-blue-500' : ''"
+                            x-text="`$${billPlan == 'monthly' ? plan.price.monthly : plan.price.annually}`"></span>
+                          <span class="text-gray-400 text-center" x-text="billPlan == 'monthly' ? '/monthly' : '/annually'"></span>
+                        </div>
+                        <!--  -->
+                        <div class="flex-shrink-0 pb-6 space-y-2 border-b text-center">
+                         
+                          <h2 class="text-2xl font-bold text-center" x-text="plan.name"></h2>
+                          <p class="text-sm text-gray-600 text-center" x-text="plan.growth"></p>
+                          <p class="text-sm text-gray-400 text-center" x-text="plan.discretion"></p>
+                       
+                        </div>
+                        <!-- Features -->
+                        <ul class="flex-1 space-y-4">
+                          <p class="text-sm text-gray-600 text-center font-semibold" x-text="plan.heading"></p>
+                          <template x-for="(feature, i) in plan.features" x-key="i">
+                            
+                            <li class="flex items-start">
+                              <svg class="min-w-6 h-6 text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                  clip-rule="evenodd" />
+                              </svg>
+                              <span class="ml-3 text-base font-medium" x-text="feature"></span>
+                            </li>
+                          </template>
+                        </ul>
+                        <!-- Button -->
+                        <div class="flex-shrink-0 pt-4">
+                          <button
+                            class="inline-flex items-center justify-center w-full max-w-xs px-4 py-2 transition-colors border rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                            :class="plan.name == 'Basic' ? '  bg-blue-700 text-white hover:bg-blue-700' : 'hover:bg-blue-500 hover:text-white bg-blue-700 text-white'"
+                            x-text="`Get ${plan.name}`"></button>
+                        </div>
+                      </section>
+                    </template>
+                  </div>
+                </main>
+              </div>
+              <script>
+                const fm = () => {
+                  return {
+                    isNavOpen: false,
+                    billPlan: 'monthly',
+                    plans: [
+                      {
+                        name: 'Growth',
+                        growth: 'For growing businesses that need to measure, analyze, and understand every customer interaction',
+                        heading: 'Everything in Free and...',
+                        discretion: '/agent/month, billed annually',
+                        price: {
+                          monthly: 19.33,
+                          annually: 15.70,
+                        },
+                        features: ['Additional 10,000 Marketing Contacts SHOPIFY/WooCommerce', 'Shopify/WooCommerce Playbooks', 'Multichannel Engagement-Chatbots, SMS & WhatsApp', 'Segmentation based on Shopify/WooCommerce events', '500 Bot sessions', '1 Messaging Agent License for Agent Inbox', 'Instagram, ABC, Line, and GBM', 'Performance Report', 'Back in Stock Notifications', 'Price Drop Notifications', 'Email Live Tracking', 'Landing Pages', 'Predictive Contact Scoring', 'Facebook & Instagram Custom Audience' ],
+                      },
+                      {
+                        name: 'Pro',
+                        growth: 'For advanced businesses that need seamless multichannel marketing with personalization',
+                        heading: 'Everything in Growth and...',
+                        discretion: '/agent/month, billed annually',
+                        price: {
+                          monthly: 152.28,
+                          annually: 126.90,
+                        },
+                        features: [ 'Additional 10,000 Marketing Contacts SHOPIFY/WooCommerce', 'Custom Roles', 'Segmentation based on Custom Events', 'SMS Content Generator.', 'Advanced Webhooks', 'Timezone-based Delivery', '10 Custom Domains', '100 Marketing Email Templates', 'Offline Events', 'Chat Auto-resolve Rules', 'Reply Tracking'],
+                      },
+                      {
+                        name: 'Enterprise',
+                        growth: 'For businesses that require governance, customization, and advanced metrics',
+                        heading: 'Everything in Pro, plus',
+                        discretion: '/agent/month, billed annually',
+                        price: {
+                          monthly: 304.57,
+                          annually: 253.81,
+                        },
+                        features: ['Additional 10,000 Marketing Contacts SHOPIFY/WooCommerce', 'Field-level Permissions', 'Auto-profile Enrichment', 'Transactional Emails', 'Dedicated Account Manager', '25 Custom Domains', '500 Marketing Email Templates'  ],
+                      },
+                    ],
+                  }
+                }
+              </script>
+                <!-- END Crm- Freshmarket -->
+            </div>
+             
+         </div>
+      </div>
       </div>
      
    </div>
